@@ -1,0 +1,72 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Chateau Guiraud Petit Guiraud 0.375L",
+      "brand": "Chateau Guiraud",
+      "origin": "France",
+      "description": "Le Petit Guiraud is a modern, fresh Sauternes that emphasizes the tension between botrytis-tinged sweetness and clean Sauvignon Blanc. Early apricots, honeycomb, orange butter combine across an intricate palate woven with zippy minerality and lemon curd. Balanced and complex, this is an ideal everyday Sauternes, meant for light desserts and also quail, roasted poultry with figs. The Petit Guiraud is 35 % Sauvignon Blanc and 65% Sémillon. Fermented separately by parcel and matured in new barrel 12 months. Château Guiraud is located in Barsac, a commune of the Sauternes appellation. The area is situated at higher elevation than Sauternes, is noted for its accessible, non-cloying dessert wines.",
+      "volume": 0.375,
+      "price": 12,
+      "package": false,
+      "spiritType": "wine",
+      "typeOfWine": "white",
+      "sugar": "sweet",
+      "category": "wine and sparkling wine",
+      "image": "assets/img/products/wine/petit-guiraud.6333.jpg",
+      "inStock": true,
+      "numberAvailable": 23
+    },
+    {
+      "id": 2,
+      "name": "Bach Extrisima Rosado 0.75L",
+      "brand": "Bach",
+      "origin": "Spain",
+      "description": "A clear and bright wine, with an intense and persistent aroma of red fruits. It is a classic pink, elegant and subtle. An ideal matching with a variety of dishes including cold meats, rice dishes, pastas, pizzas as well as fish such as monkfish, cod, tuna and white meats.",
+      "volume": 0.75,
+      "price": 6,
+      "package": false,
+      "spiritType": "wine",
+      "typeOfWine": "red",
+      "sugar": "semi-dry",
+      "category": "wine and sparkling wine",
+      "image": "assets/img/products/wine/extrisima-rosado.3851.jpg",
+      "inStock": true,
+      "numberAvailable": 25
+    },
+    {
+      "id": 3,
+      "name": "Torres Gran Sangre de Toro 0.75L",
+      "brand": "Torres",
+      "origin": "Spain",
+      "description": "Torres Gran Sangre De Toro Reserva is a red wine made by Torres in Cataluyna. ... Thus, ennobled by ageing in oak, this wine was born with its intense colour and its rich and fruity aroma. Aged for 12 months in European oak (20% new oak).",
+      "volume": 0.75,
+      "price": 9.30,
+      "package": false,
+      "spiritType": "wine",
+      "typeOfWine": "red",
+      "sugar": "dry",
+      "category": "wine and sparkling wine",
+      "image": "assets/img/products/wine/torres-gran-sangre-de-toro-.1931.jpg",
+      "inStock": true,
+      "numberAvailable": 45
+    },
+    {
+      "id": 4,
+      "name": "Bottega Ripasso della Valpolicella 0.75L",
+      "brand": "Bottega",
+      "origin": "Spain",
+      "description": "Ripasso is a traditional wine of Valpolicella (VR). It is an enological novelty which stands out thanks to its double fermentation, which refines the best aromas. ... This wine is then fermented once again, with the marcs resulting after the vinification of Amarone.",
+      "price": 16,
+      "volume": 0.75,
+      "package": false,
+      "spiritType": "wine",
+      "typeOfWine": "red",
+      "sugar": "dry",
+      "category": "wine and sparkling wine",
+      "image": "assets/img/products/wine/bottega-ripasso-della-valpolicella.4572.jpg",
+      "inStock": true,
+      "numberAvailable": 12
+    }
+  ]
+}
