@@ -21,10 +21,12 @@ class Catalogue {
 
     productCard.insertAdjacentHTML('beforeend', '<span class="catalogue__item_cart"><img src="assets/img/126083.png"></span>');
 
+    // productCard.insertAdjacentHTML('beforeend', '<span class="catalogue__item_add">+</span>');
+
     productCard.insertAdjacentHTML('beforeend',
       `<div class="catalogue__item_info">
           <p>${product.name}</p>
-          <span>${product.price}$</span>
+          <p>${product.price}$</p>
       </div>`);
 
     this.catalogue.appendChild(productCard);

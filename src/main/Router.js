@@ -5,6 +5,10 @@ class Router {
         console.log('Page not found.');
       },
     };
+
+    window.addEventListener('popstate', () => {
+      this.renderRouteContent(window.location.pathname);
+    });
   }
 
   createNewRoute(pathName, callback) {
@@ -25,6 +29,7 @@ class Router {
 
   renderRouteContent(url) {
     const pathName = url.split('/')[1] || '/';
+    console.log(pathName);
 
     if (Object.prototype.hasOwnProperty.call(this.routes, pathName)) {
       this.routes[pathName]();
