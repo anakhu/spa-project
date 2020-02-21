@@ -1,6 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-loop-func */
 import Observable from "./Observable.js";
 
 class CheckBoxService {
@@ -28,20 +25,23 @@ class CheckBoxService {
     this.initCheckBoxes();
   }
 
+  subscribe(fn) {
+    this.observable.subscribe(fn);
+  }
+
   initCheckBoxes() {
     if (Object.keys(this.filters).length) {
       this.checkboxes.forEach((checkbox) => {
         if (this.filters[checkbox.name] && this.filters[checkbox.name].includes(checkbox.value)) {
           checkbox.setAttribute('checked', true);
-          const container = checkbox.parentElement;
-          container.parentElement.style.display = 'block';
+          const container = checkbox.closest('.filter__group_content');
+          container.style.display = 'block';
         }
       });
     }
   }
 
   getFilters() {
-    console.log('getting filers');
     const filtersString = decodeURI(window.location.search);
 
     const filters = filtersString
@@ -61,10 +61,6 @@ class CheckBoxService {
     this.filters = filters;
 
     return this.filters;
-  }
-
-  subscribe(fn) {
-    this.observable.subscribe(fn);
   }
 
   onCheckBoxChecked(name, value) {

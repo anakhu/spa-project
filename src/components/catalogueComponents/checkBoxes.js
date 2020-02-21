@@ -1,6 +1,3 @@
-/* eslint-disable no-loop-func */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-param-reassign */
 const filters = ['brand', 'volume', 'manufacturer', 'category', 'package', 'spirit type'];
 
 class CheckBoxFilter {

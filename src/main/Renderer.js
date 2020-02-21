@@ -1,13 +1,14 @@
-/* eslint-disable no-param-reassign */
 import Navbar from '../components/layoutComponents/navbar.js';
 import Catalogue from '../components/catalogueComponents/catalogue.js';
 import CheckBoxFilter from '../components/catalogueComponents/checkBoxes.js';
+import Cart from '../components/cartComponents/cart.js';
 
 
 class Renderer {
-  constructor(router, checkboxService) {
+  constructor(router, checkboxService, cartService) {
     this.router = router;
     this.checkboxService = checkboxService;
+    this.cartService = cartService;
   }
 
   initApp(data) {
@@ -16,8 +17,16 @@ class Renderer {
     const filter = new CheckBoxFilter();
     filter.drawCheckboxes(data);
     catalogue.renderCatalogue(data);
+
+
+    this.renderCart(data);
     const appContent = document.getElementById('appContent-wrapper');
     appContent.style.display = 'block';
+  }
+
+  renderCart(data) {
+    const cart = new Cart();
+    cart.init(this.cartService.productsInCart, data);
   }
 
   displayPageContent(contentId, data = null) {

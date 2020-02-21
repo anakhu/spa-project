@@ -8,12 +8,19 @@ class Navbar {
   renderNavbar() {
     const navWrapper = document.createElement('div');
     navWrapper.setAttribute('class', 'nav__wrapper');
-    const ul = document.createElement('ul');
-    ul.insertAdjacentHTML('beforeend', '<li class="nav__link_home">Home</li>');
-    ul.insertAdjacentHTML('beforeend', '<li class="nav__link_about">About</li>');
-    ul.insertAdjacentHTML('beforeend', '<li class="nav__link_catalogue">Catalogue</li>');
-    ul.insertAdjacentHTML('beforeend', '<li class="nav__link_contact">Contact</li>');
-    navWrapper.appendChild(ul);
+
+    const ulMain = document.createElement('ul');
+    ulMain.insertAdjacentHTML('beforeend', '<li class="nav__link_home">Home</li>');
+    ulMain.insertAdjacentHTML('beforeend', '<li class="nav__link_about">About</li>');
+    ulMain.insertAdjacentHTML('beforeend', '<li class="nav__link_catalogue">Catalogue</li>');
+    ulMain.insertAdjacentHTML('beforeend', '<li class="nav__link_contact">Contact</li>');
+
+    const ulCart = document.createElement('ul');
+    ulCart.insertAdjacentHTML('beforeend', '<li><img class="nav__link_cart" src="assets/img/126083.png"></li>');
+
+    navWrapper.appendChild(ulMain);
+    navWrapper.appendChild(ulCart);
+
     this.navbar.appendChild(navWrapper);
   }
 
@@ -36,6 +43,10 @@ class Navbar {
         break;
       case 'nav__link_contact':
         window.history.pushState(null, null, '/contact');
+        this.render(window.location.pathname);
+        break;
+      case 'nav__link_cart':
+        window.history.pushState(null, null, '/cart');
         this.render(window.location.pathname);
         break;
       default:
