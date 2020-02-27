@@ -16,7 +16,7 @@ class Navbar {
     ulMain.insertAdjacentHTML('beforeend', '<li class="nav__link_contact">Contact</li>');
 
     const ulCart = document.createElement('ul');
-    ulCart.insertAdjacentHTML('beforeend', '<li><img class="nav__link_cart" src="assets/img/126083.png"></li>');
+    ulCart.insertAdjacentHTML('beforeend', '<li><img class="nav__link_cart" src="/assets/img/126083.png"></li>');
 
     navWrapper.appendChild(ulMain);
     navWrapper.appendChild(ulCart);

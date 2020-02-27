@@ -1,8 +1,9 @@
 import '../dist/index.html';
-import '../dist/assets/styles/styles.css';
+// import '../dist/assets/styles/styles.css';
+import '../dist/assets/styles/scss/styles.scss';
 import Router from './main/Router.js';
 import Renderer from './main/Renderer.js';
-import CheckBoxService from './main/CheckBoxService.js';
+import FilterService from './main/FilterService.js';
 import CartService from './main/CartService.js';
 
 
@@ -10,10 +11,10 @@ class App {
   constructor() {
     this.products = [];
     this.router = new Router();
-    this.checkboxService = new CheckBoxService();
+    this.filterService = new FilterService();
     this.cartService = new CartService();
-    this.renderer = new Renderer(this.router, this.checkboxService, this.cartService);
-    this.checkboxService.subscribe(this.onFilterChange.bind(this));
+    this.renderer = new Renderer(this.router, this.filterService, this.cartService);
+    this.filterService.subscribe(this.onFilterChange.bind(this));
     this.cartService.subscribe(this.onCartChange.bind(this));
     this.init();
   }
@@ -28,7 +29,7 @@ class App {
         this.initRouter();
         this.renderer.initApp(this.products);
         this.router.renderRouteContent(window.location.pathname);
-        this.checkboxService.init();
+        this.filterService.init();
         this.cartService.init();
       })
       // .catch((error) => console.log(error.message));
@@ -40,6 +41,8 @@ class App {
     this.router.createNewRoute('about', this.renderer.displayPageContent.bind(this.renderer, 'js-about-page'));
     this.router.createNewRoute('contact', this.renderer.displayPageContent.bind(this.renderer, 'js-contact-page'));
     this.router.createNewRoute('cart', this.renderer.displayPageContent.bind(this.renderer, 'js-cart-page'));
+    this.router.createNewRoute('product', this.renderer.displayPageContent.bind(this.renderer, 'js-single-page', this.products));
+    this.router.createNewRoute('404', this.renderer.displayPageContent.bind(this.renderer, 'js-error-page'));
   }
 
   onFilterChange(data) {
@@ -48,9 +51,11 @@ class App {
   }
 
   onCartChange(data) {
-    window.localStorage.setItem('products', data);
-    this.renderer.renderCart(this.products);
-    this.cartService.initDeleteButtons();
+    if (window.location.pathname.includes('catalogue') || window.location.pathname.includes('product')) {
+      window.localStorage.setItem('products', data);
+      this.renderer.renderCart(this.products);
+      this.cartService.initCartInputHadlers();
+    }
   }
 }
 

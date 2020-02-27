@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -6,13 +7,18 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
+    contentBase: path.join(__dirname, 'dist'),
+    port: 8000,
+    compress: true,
     hot: true,
     historyApiFallback: {
-      index: 'index.html',
+      rewrites: [
+        { from: /^\/$/, to: 'index.html' },
+      ],
     },
   },
   module: {
@@ -28,9 +34,9 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
+        test: /\.s[ac]ss$/i,
         use: [
-          'style-loader', 'css-loader',
+          'style-loader', 'css-loader', 'sass-loader',
         ],
       },
       {
@@ -47,4 +53,12 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery\'',
+      'window.$': 'jquery',
+    }),
+  ],
 };

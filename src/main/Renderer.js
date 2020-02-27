@@ -1,7 +1,9 @@
 import Navbar from '../components/layoutComponents/navbar.js';
 import Catalogue from '../components/catalogueComponents/catalogue.js';
-import CheckBoxFilter from '../components/catalogueComponents/checkBoxes.js';
+import Filters from '../components/catalogueComponents/filters.js';
 import Cart from '../components/cartComponents/cart.js';
+import OrderCard from '../components/cartComponents/order.js';
+import SinglePage from '../components/singlePageComponents/singlePage';
 
 
 class Renderer {
@@ -13,13 +15,16 @@ class Renderer {
 
   initApp(data) {
     const navbar = new Navbar(this.router.renderRouteContent.bind(this.router));
-    const catalogue = new Catalogue();
-    const filter = new CheckBoxFilter();
-    filter.drawCheckboxes(data);
+    const catalogue = new Catalogue(this.router.renderRouteContent.bind(this.router));
+    const filter = new Filters();
+    const singlePage = new SinglePage();
+
+    filter.drawFilters(data);
     catalogue.renderCatalogue(data);
 
-
     this.renderCart(data);
+    this.renderOrderCard();
+
     const appContent = document.getElementById('appContent-wrapper');
     appContent.style.display = 'block';
   }
@@ -27,6 +32,22 @@ class Renderer {
   renderCart(data) {
     const cart = new Cart();
     cart.init(this.cartService.productsInCart, data);
+  }
+
+  renderOrderCard() {
+    const orderCard = new OrderCard();
+    orderCard.drawOrderCard();
+  }
+
+  renderSinglePage(data) {
+    const singlePage = new SinglePage();
+    singlePage.drawSinglePage(data);
+
+    const addBtn = document.querySelector('.singlePage__item_add');
+    addBtn.addEventListener('click', () => {
+      const itemId = window.location.pathname.split('/product/')[1];
+      this.cartService.addProductToCart(itemId);
+    });
   }
 
   displayPageContent(contentId, data = null) {
@@ -42,6 +63,10 @@ class Renderer {
     [...appContentElements].forEach((div) => {
       div.style.display = 'none';
     });
+
+    if (window.location.pathname.includes('product')) {
+      this.displaySinglePageContent(data);
+    }
 
     if (contentId) {
       const pageContent = document.getElementById(contentId);
@@ -64,14 +89,29 @@ class Renderer {
     const productCards = Array.from(document.querySelectorAll('.catalogue__item'));
 
     data.forEach((product) => {
-      const isFound = Object.keys(filters).every((key) => filters[key].includes(String(product[key])));
-      const card = productCards.find((productCard) => Number(productCard.dataset['id']) === Number(product.id));
+      const isFound = Object.keys(filters).every((key) => {
+        if (key === 'price') {
+          return Number(filters[key]) >= Number(product[key]);
+        }
+
+        return filters[key].includes(String(product[key]));
+      });
+      const card = productCards.find((productCard) => Number(productCard.dataset.id) === Number(product.id));
       if (isFound) {
         card.style.display = 'flex';
       } else {
         card.style.display = 'none';
       }
     });
+  }
+
+  displaySinglePageContent(data) {
+    const productId = window.location.pathname.split('product/')[1];
+    const product = data.find((item) => item.id === Number(productId));
+
+    if (product) {
+      this.renderSinglePage(product);
+    }
   }
 }
 

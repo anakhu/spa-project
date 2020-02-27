@@ -1,44 +1,73 @@
 import Observable from "./Observable.js";
 
-class CheckBoxService {
+class FilterService {
   constructor() {
     this.checkboxes = [];
+    this.priceInput = null;
+    this.resetFiltersBtn = null;
     this.filters = {};
     this.observable = new Observable();
   }
 
   init() {
     this.checkboxes = document.querySelectorAll('.filter__group_checkbox input');
+    this.resetFiltersBtn = document.querySelector('.filter__button_reset');
+    this.priceInput = document.querySelector('.filter__group_price');
+
+    this.resetFiltersBtn.addEventListener('click', () => {
+      this.resetFilters();
+    });
+
+    this.priceInput.addEventListener('change', (e) => {
+      this.onInputRangeChange(e.target.value);
+      this.handleFilterChange();
+      const currentVal = document.querySelector('.filter__price_current');
+      currentVal.textContent = e.target.value;
+    });
+
     this.checkboxes.forEach((checkbox) => {
-      checkbox.addEventListener('click', (e) => {
-        if (e.target.hasAttribute('checked')) {
-          e.target.removeAttribute('checked');
-          this.onCheckBoxUnChecked(e.target.name, e.target.value);
-        } else {
-          e.target.setAttribute('checked', true);
+      checkbox.addEventListener('change', (e) => {
+        if (e.target.checked) {
           this.onCheckBoxChecked(e.target.name, e.target.value);
+        } else {
+          this.onCheckBoxUnChecked(e.target.name, e.target.value);
         }
         this.handleFilterChange();
       });
     });
+
     this.getFilters();
-    this.initCheckBoxes();
+    this.initFilters();
   }
 
   subscribe(fn) {
     this.observable.subscribe(fn);
   }
 
-  initCheckBoxes() {
+  initFilters() {
     if (Object.keys(this.filters).length) {
-      this.checkboxes.forEach((checkbox) => {
-        if (this.filters[checkbox.name] && this.filters[checkbox.name].includes(checkbox.value)) {
-          checkbox.setAttribute('checked', true);
-          const container = checkbox.closest('.filter__group_content');
+      this.checkboxes.forEach((filter) => {
+        if (this.filters[filter.name] && this.filters[filter.name].includes(filter.value)) {
+          filter.checked = true;
+          const container = filter.closest('.filter__group_content');
           container.style.display = 'block';
         }
       });
     }
+    if (this.filters.price) {
+      this.priceInput.value = this.filters.price;
+      const currentVal = document.querySelector('.filter__price_current');
+      currentVal.textContent = this.filters.price;
+    }
+  }
+
+  resetFilters() {
+    this.filters = {};
+    this.handleFilterChange();
+    this.checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+    this.priceInput.value = this.priceInput.max;
   }
 
   getFilters() {
@@ -61,6 +90,10 @@ class CheckBoxService {
     this.filters = filters;
 
     return this.filters;
+  }
+
+  onInputRangeChange(value) {
+    this.filters.price = [value];
   }
 
   onCheckBoxChecked(name, value) {
@@ -106,4 +139,4 @@ class CheckBoxService {
   }
 }
 
-export default CheckBoxService;
+export default FilterService;
