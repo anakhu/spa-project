@@ -16,12 +16,15 @@ class LoginForm {
   renderSignInForm() {
     this.signInForm = document.createElement('form');
     this.signInForm.setAttribute('id', 'js-sign-in-form');
+    this.signInForm.setAttribute('novalidate', true);
 
     this.signInForm.insertAdjacentHTML('beforeend',
       `<label for="email">Email:</label>
-      <input type="email" name="email" required>
+      <input type="email" name="email">
+      <p class="email-error"></p>
       <label for="password">Password:</label>
-      <input type="password" name="password" required>
+      <input type="password" name="password">
+      <p class="password-error"></p>
       <button type="submit">Sign in</button>
       `);
 
@@ -31,16 +34,18 @@ class LoginForm {
   rendeSignUpForm() {
     this.signUpForm = document.createElement('form');
     this.signUpForm.setAttribute('id', 'js-sign-up-form');
+    this.signInForm.setAttribute('novalidate', true);
 
     this.signUpForm.insertAdjacentHTML('beforeend',
       `<label for="namel">Name:</label>
-      <input type="text" name="name" required>
+      <input type="text" name="name">
+      <p class="name-error"></p>
       <label for="email">Email:</label>
-      <input type="email" name="email" required>
-      <label for="password-1">Password:</label>
-      <input type="password" name="password-1" required>
-      <label for="password-2">Confirm password:</label>
-      <input type="password" name="password-2" required>
+      <input type="email" name="email">
+      <p class="email-error"></p>
+      <label for="password">Password:</label>
+      <input type="password" name="password">
+      <p class="password-error"></p>
       <button type="submit">Sign Up</button>
       `);
 

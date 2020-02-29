@@ -79,7 +79,7 @@ class Renderer {
       pageContent.style.display = 'block';
     }
 
-    if (window.location.search) {
+    if (window.location.search && window.location.pathname.includes('catalogue')) {
       this.displayFilteredContent(data);
     } else {
       const productCards = Array.from(document.querySelectorAll('.catalogue__item'));

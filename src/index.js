@@ -1,11 +1,11 @@
 import '../dist/index.html';
-// import '../dist/assets/styles/styles.css';
 import '../dist/assets/styles/scss/styles.scss';
 import Router from './main/Router.js';
 import Renderer from './main/Renderer.js';
 import FilterService from './main/FilterService.js';
 import CartService from './main/CartService.js';
 import CartObserver from './main/CartObsever.js';
+import AuthService from './main/AuthService.js';
 
 
 class App {
@@ -15,6 +15,7 @@ class App {
     this.filterService = new FilterService();
     this.cartService = new CartService();
     this.cartObserver = new CartObserver();
+    this.authService = new AuthService();
     this.renderer = new Renderer(this.router, this.filterService, this.cartService, this.cartObserver);
     this.filterService.subscribe(this.onFilterChange.bind(this));
     this.cartService.subscribe(this.onCartChange.bind(this));
@@ -33,6 +34,7 @@ class App {
         this.router.renderRouteContent(window.location.pathname);
         this.filterService.init();
         this.cartService.init();
+        this.authService.initAuthForms();
       })
       // .catch((error) => console.log(error.message));
   }
