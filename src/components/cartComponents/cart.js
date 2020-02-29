@@ -2,7 +2,6 @@ class Cart {
   constructor() {
     this.cartPageContent = document.querySelector('.cartPage__content');
     this.cartWrapper = document.querySelector('.cartPage__cart_wrapper');
-    this.cartTotal = document.querySelector('.cartPage__total');
 
     if (Cart.instance) {
       return Cart.instance;
@@ -51,7 +50,6 @@ class Cart {
   resetCart() {
     const cartItem = document.querySelectorAll('.cart__item_wrapper');
     cartItem.forEach((item) => item.remove());
-    this.cartTotal.textContent = '';
   }
 }
 

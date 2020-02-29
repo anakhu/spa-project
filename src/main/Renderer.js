@@ -4,13 +4,15 @@ import Filters from '../components/catalogueComponents/filters.js';
 import Cart from '../components/cartComponents/cart.js';
 import OrderCard from '../components/cartComponents/order.js';
 import SinglePage from '../components/singlePageComponents/singlePage';
+import LoginForm from '../components/authComponents/login.js';
 
 
 class Renderer {
-  constructor(router, checkboxService, cartService) {
+  constructor(router, checkboxService, cartService, cartObsever) {
     this.router = router;
     this.checkboxService = checkboxService;
     this.cartService = cartService;
+    this.cartObserver = cartObsever;
   }
 
   initApp(data) {
@@ -18,15 +20,19 @@ class Renderer {
     const catalogue = new Catalogue(this.router.renderRouteContent.bind(this.router));
     const filter = new Filters();
     const singlePage = new SinglePage();
+    const loginForm = new LoginForm();
 
     filter.drawFilters(data);
     catalogue.renderCatalogue(data);
+    loginForm.initAuthForms();
 
     this.renderCart(data);
     this.renderOrderCard();
 
     const appContent = document.getElementById('appContent-wrapper');
     appContent.style.display = 'block';
+
+    this.cartObserver.initObserver();
   }
 
   renderCart(data) {

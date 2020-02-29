@@ -5,6 +5,7 @@ import Router from './main/Router.js';
 import Renderer from './main/Renderer.js';
 import FilterService from './main/FilterService.js';
 import CartService from './main/CartService.js';
+import CartObserver from './main/CartObsever.js';
 
 
 class App {
@@ -13,7 +14,8 @@ class App {
     this.router = new Router();
     this.filterService = new FilterService();
     this.cartService = new CartService();
-    this.renderer = new Renderer(this.router, this.filterService, this.cartService);
+    this.cartObserver = new CartObserver();
+    this.renderer = new Renderer(this.router, this.filterService, this.cartService, this.cartObserver);
     this.filterService.subscribe(this.onFilterChange.bind(this));
     this.cartService.subscribe(this.onCartChange.bind(this));
     this.init();
@@ -43,6 +45,7 @@ class App {
     this.router.createNewRoute('cart', this.renderer.displayPageContent.bind(this.renderer, 'js-cart-page'));
     this.router.createNewRoute('product', this.renderer.displayPageContent.bind(this.renderer, 'js-single-page', this.products));
     this.router.createNewRoute('404', this.renderer.displayPageContent.bind(this.renderer, 'js-error-page'));
+    this.router.createNewRoute('login', this.renderer.displayPageContent.bind(this.renderer, 'js-auth-page'));
   }
 
   onFilterChange(data) {
@@ -55,6 +58,8 @@ class App {
       window.localStorage.setItem('products', data);
       this.renderer.renderCart(this.products);
       this.cartService.initCartInputHadlers();
+      this.cartObserver.initObserver();
+      this.cartObserver.calculateTotal();
     }
   }
 }

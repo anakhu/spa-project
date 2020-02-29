@@ -38,7 +38,6 @@ class CartService {
     delete this.productsInCart[index];
     e.target.closest('.cart__item_wrapper').remove();
     this.updateLocalStorage();
-    this.calculateTotal();
   }
 
 
@@ -54,7 +53,6 @@ class CartService {
   initCartInputHadlers() {
     this.initDeleteButtons();
     this.initCartNumberInput();
-    this.initCartCalculator();
   }
 
 
@@ -76,38 +74,11 @@ class CartService {
           e.target.value = e.target.max;
         }
         const { id } = e.target.dataset;
-        this.productsInCart[id] = e.target.value;
+        this.productsInCart[id] = Number(e.target.value);
 
         this.updateLocalStorage();
       });
     });
-  }
-
-  initCartCalculator() {
-    const forms = document.querySelectorAll('.cart__item_input');
-
-    forms.forEach((form) => {
-      form.addEventListener('change', () => this.calculateTotal());
-    });
-  }
-
-  calculateTotal() {
-    const total = document.querySelector('.cartPage__total');
-
-    const cartItems = document.querySelectorAll('.cart__item_wrapper');
-
-    const priceTotal = Array.from(cartItems).reduce((totalSum, currentItem) => {
-      const flag = currentItem.querySelector('.cart__item_choose');
-      if (flag.checked) {
-        const price = currentItem.querySelector('.cart__item_price').dataset.value;
-        const quantity = currentItem.querySelector('.cart__item_quantity').value;
-        totalSum += price * quantity;
-      }
-
-      return totalSum;
-    }, 0);
-
-    total.textContent = priceTotal > 0 ? priceTotal : '';
   }
 }
 

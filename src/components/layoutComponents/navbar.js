@@ -10,16 +10,22 @@ class Navbar {
     navWrapper.setAttribute('class', 'nav__wrapper');
 
     const ulMain = document.createElement('ul');
-    ulMain.insertAdjacentHTML('beforeend', '<li class="nav__link_home">Home</li>');
-    ulMain.insertAdjacentHTML('beforeend', '<li class="nav__link_about">About</li>');
-    ulMain.insertAdjacentHTML('beforeend', '<li class="nav__link_catalogue">Catalogue</li>');
-    ulMain.insertAdjacentHTML('beforeend', '<li class="nav__link_contact">Contact</li>');
+    ulMain.insertAdjacentHTML('beforeend',
+      `<li class="nav__link_home">Home</li>
+      <li class="nav__link_about">About</li>
+      <li class="nav__link_catalogue">Catalogue</li>
+      <li class="nav__link_contact">Contact</li>
+      `);
 
-    const ulCart = document.createElement('ul');
-    ulCart.insertAdjacentHTML('beforeend', '<li><img class="nav__link_cart" src="/assets/img/126083.png"></li>');
+    const ulSecondary = document.createElement('ul');
+    ulSecondary.insertAdjacentHTML('beforeend',
+      `<li class="nav__link_login">Log in</li>
+        <li class="nav__link_logout">Log out</li>
+        <li><img class="nav__link_cart" src="/assets/img/126083.png"></li>
+      `);
 
     navWrapper.appendChild(ulMain);
-    navWrapper.appendChild(ulCart);
+    navWrapper.appendChild(ulSecondary);
 
     this.navbar.appendChild(navWrapper);
   }
@@ -47,6 +53,10 @@ class Navbar {
         break;
       case 'nav__link_cart':
         window.history.pushState(null, null, '/cart');
+        this.render(window.location.pathname);
+        break;
+      case 'nav__link_login':
+        window.history.pushState(null, null, '/login');
         this.render(window.location.pathname);
         break;
       default:

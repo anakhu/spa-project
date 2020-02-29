@@ -1,19 +1,28 @@
 class OrderCard {
-
   constructor() {
-    this.orderCardContainer = document.querySelector('.cartPage__cart_order');
+    this.orderCardContainer = document.getElementById('js-order-card');
   }
 
   drawOrderCard() {
-    const orderCardWrapper = document.createElement('div');
-    orderCardWrapper.setAttribute('class', 'order__wrapper');
-    orderCardWrapper.textContent = 'Some content';
-    this.orderCardContainer.appendChild(orderCardWrapper);
+    this.makeCardTemplate();
   }
 
-  // drawOrderCardContent(data) {
-  //   data.forEach
-  // }
+  makeCardTemplate() {
+    this.orderCardContainer.insertAdjacentHTML('beforeend',
+      `<div class="cartPage__order_wrapper">
+        <div>
+          <h3 class="cart__details_label">Total</h3>
+          <div class="cartPage__total">No items chosen</div>
+        </div>
+        <div>
+          <h3 class="cart__details_label">Order details</h3>
+          <div class="cartPage__details"></div>
+        </div>
+      </div>
+      <div>
+          <button class="cartPage__order_buy">Buy</button>
+      </div>`);
+  }
 }
 
 export default OrderCard;
