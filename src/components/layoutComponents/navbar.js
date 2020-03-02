@@ -1,69 +1,37 @@
-class Navbar {
-  constructor(render) {
-    this.navbar = document.getElementById('js-main-nav');
-    this.render = render;
-    this.initNavbar();
-  }
+import { NAVBAR_TEMPLATE } from '../templates.js';
 
-  renderNavbar() {
-    const navWrapper = document.createElement('div');
-    navWrapper.setAttribute('class', 'nav__wrapper');
-
-    const ulMain = document.createElement('ul');
-    ulMain.insertAdjacentHTML('beforeend',
-      `<li class="nav__link_home">Home</li>
-      <li class="nav__link_about">About</li>
-      <li class="nav__link_catalogue">Catalogue</li>
-      <li class="nav__link_contact">Contact</li>
-      `);
-
-    const ulSecondary = document.createElement('ul');
-    ulSecondary.insertAdjacentHTML('beforeend',
-      `<li class="nav__link_login">Log in</li>
-        <li class="nav__link_logout">Log out</li>
-        <li><img class="nav__link_cart" src="/assets/img/126083.png"></li>
-      `);
-
-    navWrapper.appendChild(ulMain);
-    navWrapper.appendChild(ulSecondary);
-
-    this.navbar.appendChild(navWrapper);
-  }
-
-  initNavbar() {
-    this.renderNavbar();
-
-    this.navbar.addEventListener('click', (e) => {
-      switch (e.target.className) {
-      case 'nav__link_home':
-        window.history.pushState(null, null, '/');
-        this.render(window.location.pathname);
-        break;
-      case 'nav__link_about':
-        window.history.pushState(null, null, '/about');
-        this.render(window.location.pathname);
-        break;
-      case 'nav__link_catalogue':
-        window.history.pushState(null, null, '/catalogue');
-        this.render(window.location.pathname);
-        break;
-      case 'nav__link_contact':
-        window.history.pushState(null, null, '/contact');
-        this.render(window.location.pathname);
-        break;
-      case 'nav__link_cart':
-        window.history.pushState(null, null, '/cart');
-        this.render(window.location.pathname);
-        break;
-      case 'nav__link_login':
-        window.history.pushState(null, null, '/login');
-        this.render(window.location.pathname);
-        break;
-      default:
-        break;
-      }
-    });
-  }
+function initNavbar(navbar, render) {
+  navbar.addEventListener('click', (e) => {
+    switch (e.target.className) {
+    case 'nav__link_home':
+      window.history.pushState(null, null, '/');
+      break;
+    case 'nav__link_about':
+      window.history.pushState(null, null, '/about');
+      break;
+    case 'nav__link_catalogue':
+      window.history.pushState(null, null, '/catalogue');
+      break;
+    case 'nav__link_contact':
+      window.history.pushState(null, null, '/contact');
+      break;
+    case 'nav__link_cart':
+      window.history.pushState(null, null, '/cart');
+      break;
+    case 'nav__link_login':
+      window.history.pushState(null, null, '/login');
+      break;
+    default:
+      break;
+    }
+    render(window.location.pathname);
+  });
 }
 
-export default Navbar;
+function renderNavbar(render) {
+  const navbar = document.getElementById('js-main-nav');
+  navbar.insertAdjacentHTML('beforeend', NAVBAR_TEMPLATE());
+  initNavbar(navbar, render);
+}
+
+export default renderNavbar;

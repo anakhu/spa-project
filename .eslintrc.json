@@ -27,6 +27,7 @@
         "class-methods-use-this": "off",
         "no-loop-func": "off",
         "no-restricted-syntax": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "import/prefer-default-export" : "off"
     }
 }

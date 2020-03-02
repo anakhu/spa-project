@@ -1,10 +1,6 @@
 class Router {
   constructor() {
-    this.routes = {
-      404: () => {
-        console.log('Page not found.');
-      },
-    };
+    this.routes = {};
 
     window.addEventListener('popstate', () => {
       this.renderRouteContent(window.location.pathname);
@@ -12,17 +8,17 @@ class Router {
   }
 
   createNewRoute(pathName, callback) {
-    // if (!pathName || typeof pathName !== 'string') {
-    //   throw new Error('Valid path required');
-    // }
+    if (!pathName || typeof pathName !== 'string') {
+      throw new Error('Valid path required');
+    }
 
-    // if (!callback || typeof callback !== 'function') {
-    //   throw new Error('Callback required');
-    // }
+    if (!callback || typeof callback !== 'function') {
+      throw new Error('Callback required');
+    }
 
-    // if (Object.prototype.hasOwnProperty.call(this.routes, pathName)) {
-    //   throw new Error('Route with this name already exists');
-    // }
+    if (Object.prototype.hasOwnProperty.call(this.routes, pathName)) {
+      throw new Error('Route with this name already exists');
+    }
 
     this.routes[pathName] = callback;
   }

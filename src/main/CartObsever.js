@@ -1,13 +1,13 @@
 class CartObserver {
   constructor() {
     this.cartOrderContainer = document.getElementById('js-order-card');
-    this.details = null;
   }
 
   initObserver() {
     const nodesToObserve = document.querySelectorAll('.cart__item_input');
     if (nodesToObserve) {
       this.initCartCalculator();
+      this.calculateTotal();
     }
   }
 
@@ -59,7 +59,9 @@ class CartObserver {
   renderCartOrderDetails(id, name, quantity) {
     const cartDetails = document.querySelector('.cartPage__details');
     if (cartDetails.children) {
-      const found = Array.from(cartDetails.children).find((item) => item.id === id);
+      const found = Array.from(cartDetails.children)
+        .find((item) => Number(item.id) === Number(id));
+
       if (found) {
         found.textContent = `${name} : ${quantity}`;
 
@@ -75,7 +77,9 @@ class CartObserver {
 
   deleteCardOrderNote(id) {
     const cartDetails = document.querySelector('.cartPage__details');
-    const found = Array.from(cartDetails.children).find((item) => item.id === id);
+    const found = Array.from(cartDetails.children)
+      .find((item) => Number(item.id) === Number(id));
+
     if (found) {
       found.remove();
     }

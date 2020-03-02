@@ -458,35 +458,89 @@
       "password": "kate123"
     },
     {
-      "email": "admin@mail.ru",
-      "password": "admin12345",
-      "id": 3
-    },
-    {
       "name": "Ola",
       "email": "ola@mail.ru",
       "password-1": "ola123",
       "password-2": "ola123",
-      "id": 4
+      "id": 3
     },
     {
       "name": "Leo",
       "email": "leo@mail.ru",
       "password": "leo123",
+      "id": 4
+    },
+    {
+      "name": "Den",
+      "email": "deb@mail.ru",
+      "password": "den123",
       "id": 5
     },
     {
+      "name": "Pall",
+      "email": "pall@mail.ru",
+      "password": "pall123",
       "id": 6
     },
     {
+      "name": "lars",
+      "email": "lars@mail.ru",
+      "password": "lars123",
       "id": 7
     },
     {
+      "name": "Ola",
+      "email": "ola@mail.ru",
+      "password": "ola123",
       "id": 8
     },
     {
-      "email": "na@mail.ru",
+      "name": "Ola",
+      "email": "ola@mail.ru",
+      "password": "ola123",
       "id": 9
+    },
+    {
+      "name": "Ola",
+      "email": "ola@mail.ru",
+      "password": "admin12345",
+      "id": 10
+    },
+    {
+      "name": "Ola",
+      "email": "ola@mail.ru",
+      "password": "admin12345",
+      "id": 11
+    },
+    {
+      "name": "Zina",
+      "email": "zina@mail.ru",
+      "password": "zain123",
+      "id": 12
+    },
+    {
+      "name": "Nika",
+      "email": "nika@mail.ru",
+      "password": "nika1234",
+      "id": 13
+    },
+    {
+      "name": "Nick",
+      "email": "nick@mail.ru",
+      "password": "nick123",
+      "id": 14
+    },
+    {
+      "name": "Den",
+      "email": "den@mail.ru",
+      "password": "den1234",
+      "id": 15
+    },
+    {
+      "name": "John",
+      "email": "john@mail.ru",
+      "password": "john123",
+      "id": 16
     }
   ]
 }

@@ -1,4 +1,7 @@
-const filters = ['brand', 'volume', 'manufacturer', 'category', 'package', 'spirit type'];
+import { PRICE_INPUT_TEMPLATE, CHECKBOX_TEMPLATE } from '../templates.js';
+import CONFIG from '../../config.js';
+
+const { filters } = CONFIG;
 
 class Filters {
   constructor() {
@@ -19,21 +22,7 @@ class Filters {
       min: Math.min(...allPrices),
       max: Math.max(...allPrices),
     };
-
-    const priceInput = document.createElement('div');
-    priceInput.setAttribute('class', 'filter__group_label');
-    priceInput.textContent = 'PRICE';
-
-    priceInput.insertAdjacentHTML('beforeend',
-      `<div class="filter__group_content">
-        <span>${prices.min}</span>
-        <input type="range" class="filter__group_price" name="price" 
-          value="${prices.max}" min="${prices.min}" max="${prices.max}">
-        <span>${prices.max}</span>
-        <div class="filter__price_current"><div> 
-      </div>`);
-
-    this.filtersContaniner.appendChild(priceInput);
+    this.filtersContaniner.insertAdjacentHTML('beforeend', PRICE_INPUT_TEMPLATE(prices.min, prices.max));
   }
 
   buildCheckboxes(data) {
@@ -59,25 +48,13 @@ class Filters {
       const filterGroup = document.createElement('div');
       filterGroup.setAttribute('class', 'catalogue__filter_group');
       filterGroup.insertAdjacentHTML('beforeend',
-        `<div class="filter__group_label">
-          ${key.toUpperCase()}
-        </div>`);
+        `<div class="filter__group_label">${key.toUpperCase()}</div>`);
 
       const filterGroupContent = document.createElement('div');
       filterGroupContent.setAttribute('class', 'filter__group_content');
 
       value.sort().forEach((filterValue) => {
-        const checkBoxEntry = document.createElement('div');
-        checkBoxEntry.setAttribute('class', 'filter__group_checkbox');
-        checkBoxEntry.setAttribute('value', filterValue);
-
-        checkBoxEntry.insertAdjacentHTML('beforeend',
-          `<label for="${filterValue}">
-            ${filterValue}
-          </label>
-          <input type="checkbox" name="${key}" value="${filterValue}" />`);
-
-        filterGroupContent.appendChild(checkBoxEntry);
+        filterGroupContent.insertAdjacentHTML('beforeend', CHECKBOX_TEMPLATE(key, filterValue));
       });
 
       filterGroup.appendChild(filterGroupContent);

@@ -1,38 +1,31 @@
-import Navbar from '../components/layoutComponents/navbar.js';
-import Catalogue from '../components/catalogueComponents/catalogue.js';
+import renderNavbar from '../components/layoutComponents/navbar.js';
+import renderHomePage from '../components/homePageComponents/homepage.js';
+import renderCatalogue from '../components/catalogueComponents/catalogue.js';
 import Filters from '../components/catalogueComponents/filters.js';
 import Cart from '../components/cartComponents/cart.js';
-import OrderCard from '../components/cartComponents/order.js';
+import renderOrderCard from '../components/cartComponents/order.js';
 import SinglePage from '../components/singlePageComponents/singlePage';
-import LoginForm from '../components/authComponents/login.js';
+import renderAuthForms from '../components/authComponents/login.js';
 
 
 class Renderer {
-  constructor(router, checkboxService, cartService, cartObsever) {
+  constructor(router, checkboxService, cartService, cartObserver) {
+    this.appContainer = document.getElementById('appContent-wrapper');
     this.router = router;
     this.checkboxService = checkboxService;
     this.cartService = cartService;
-    this.cartObserver = cartObsever;
+    this.cartObserver = cartObserver;
   }
 
   initApp(data) {
-    const navbar = new Navbar(this.router.renderRouteContent.bind(this.router));
-    const catalogue = new Catalogue(this.router.renderRouteContent.bind(this.router));
-    const filter = new Filters();
-    const singlePage = new SinglePage();
-    const loginForm = new LoginForm();
-
-    filter.drawFilters(data);
-    catalogue.renderCatalogue(data);
-    loginForm.initAuthForms();
-
+    renderHomePage(this.router.renderRouteContent.bind(this.router));
+    renderNavbar(this.router.renderRouteContent.bind(this.router));
+    renderCatalogue(data, this.router.renderRouteContent.bind(this.router));
     this.renderCart(data);
-    this.renderOrderCard();
-
-    const appContent = document.getElementById('appContent-wrapper');
-    appContent.style.display = 'block';
-
-    this.cartObserver.initObserver();
+    this.renderFilters(data);
+    renderOrderCard();
+    renderAuthForms();
+    this.appContainer.style.display = 'block';
   }
 
   renderCart(data) {
@@ -40,9 +33,9 @@ class Renderer {
     cart.init(this.cartService.productsInCart, data);
   }
 
-  renderOrderCard() {
-    const orderCard = new OrderCard();
-    orderCard.drawOrderCard();
+  renderFilters(data) {
+    const filters = new Filters();
+    filters.drawFilters(data);
   }
 
   renderSinglePage(data) {
@@ -56,29 +49,26 @@ class Renderer {
     });
   }
 
-  displayPageContent(contentId, data = null) {
+  displayPageContent(contentId) {
+    const appContentElements = Array.from(this.appContainer.children);
+    [...appContentElements].forEach((div) => {
+      div.style.display = 'none';
+    });
+    const pageContent = document.getElementById(contentId);
+    pageContent.style.display = 'block';
+  }
+
+  renderPageContent(contentId, data) {
+    this.displayPageContent(contentId);
     if (!window.location.search) {
       if (contentId === 'js-catalogue-page' && Object.keys(this.checkboxService.filters).length) {
         window.history.pushState(null, null, this.checkboxService.createQuery());
       }
     }
-
-    const appContent = document.getElementById('appContent-wrapper');
-    const appContentElements = Array.from(appContent.children);
-
-    [...appContentElements].forEach((div) => {
-      div.style.display = 'none';
-    });
-
     if (window.location.pathname.includes('product')) {
+      console.log('includes product');
       this.displaySinglePageContent(data);
     }
-
-    if (contentId) {
-      const pageContent = document.getElementById(contentId);
-      pageContent.style.display = 'block';
-    }
-
     if (window.location.search && window.location.pathname.includes('catalogue')) {
       this.displayFilteredContent(data);
     } else {
@@ -91,10 +81,8 @@ class Renderer {
 
   displayFilteredContent(data) {
     const filters = this.checkboxService.getFilters();
-
     const productCards = Array.from(document.querySelectorAll('.catalogue__item'));
-
-    data.forEach((product) => {
+    [...data].forEach((product) => {
       const isFound = Object.keys(filters).every((key) => {
         if (key === 'price') {
           return Number(filters[key]) >= Number(product[key]);
@@ -102,21 +90,21 @@ class Renderer {
 
         return filters[key].includes(String(product[key]));
       });
-      const card = productCards.find((productCard) => Number(productCard.dataset.id) === Number(product.id));
-      if (isFound) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
+      const card = productCards
+        .find((productCard) => Number(productCard.dataset.id) === Number(product.id));
+      card.style.display = isFound ? 'flex' : 'none';
     });
   }
 
   displaySinglePageContent(data) {
     const productId = window.location.pathname.split('product/')[1];
-    const product = data.find((item) => item.id === Number(productId));
+    const product = data.find((item) => Number(item.id) === Number(productId));
 
     if (product) {
       this.renderSinglePage(product);
+    } else {
+      window.history.pushState(null, null, '/404');
+      this.router.renderRouteContent(window.location.pathname);
     }
   }
 }

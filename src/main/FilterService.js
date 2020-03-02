@@ -3,6 +3,7 @@ import Observable from "./Observable.js";
 class FilterService {
   constructor() {
     this.checkboxes = [];
+    this.homePageFilters = [];
     this.priceInput = null;
     this.resetFiltersBtn = null;
     this.filters = {};
@@ -11,6 +12,7 @@ class FilterService {
 
   init() {
     this.checkboxes = document.querySelectorAll('.filter__group_checkbox input');
+    this.homePageFilters = document.querySelectorAll('.homePage__products img');
     this.resetFiltersBtn = document.querySelector('.filter__button_reset');
     this.priceInput = document.querySelector('.filter__group_price');
 
@@ -33,6 +35,14 @@ class FilterService {
           this.onCheckBoxUnChecked(e.target.name, e.target.value);
         }
         this.handleFilterChange();
+      });
+    });
+
+    this.homePageFilters.forEach((img) => {
+      img.addEventListener('click', (e) => {
+        this.onCheckBoxChecked(e.target.name, e.target.dataset.value);
+        this.handleFilterChange();
+        this.initFilters();
       });
     });
 

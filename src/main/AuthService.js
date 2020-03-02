@@ -1,124 +1,54 @@
-import validate from './utils/validator.js';
-
-const VALIDATION_RULES = {
-  name: {
-    minLen: 3,
-    maxLen: 20,
-    onlyNumbersAndLetters: true,
-    isNotEmpty: true,
-  },
-  email: {
-    isNotEmpty: true,
-    isValidEmail: true,
-  },
-  password: {
-    minLen: 6,
-    maxLen: 20,
-    onlyNumbersAndLetters: true,
-    isNotEmpty: true,
-  },
-};
-
 class AuthService {
   constructor() {
-    this.signInForm = null;
-    this.signUpForm = null;
+    this.user = {};
+    this.isLoggedIn = false;
   }
 
-  initAuthForms() {
-    this.initSignInForm();
-    this.initSignUpForm();
-    this.triggerOnInputChangeValidation();
-  }
-
-  initSignInForm() {
-    this.signInForm = document.getElementById('js-sign-in-form');
-    this.signInForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = this.getFormData(e.target);
-      if (data) {
-        this.makeRequest('GET', {})
-          .then((res) => res.json())
-          .then((res) => {
-            const foundUser = res.find((user) => user.email === data.email && user.password === data.password);
-            if (foundUser) {
-              console.log(foundUser);
-            }
-          })
-          .catch((err) => console.log(err));
-      }
-    });
-  }
-
-  initSignUpForm() {
-    this.signUpForm = document.getElementById('js-sign-up-form');
-    this.signUpForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = this.getFormData(e.target);
-      if (data) {
-        this.makeRequest('POST', data)
-          .then((res) => console.log(res));
-      }
-    });
-  }
-
-  validateInputField(field) {
-    const activeForm = field.parentElement;
-    const { name, value } = field;
-    const validationResult = validate(name, value, VALIDATION_RULES[name]);
-    this.displayErrors(activeForm, name, validationResult[name]);
-  }
-
-  displayErrors(activeForm, name, errors) {
-    const errorField = activeForm.querySelector(`.${name}-error`);
-
-    if (errors) {
-      errorField.textContent = errors.reduce((errorString, message) => {
-        errorString += `${message}\n`;
-
-        return errorString;
-      }, '');
+  signUserIn() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    if (this.user) {
+      this.isLoggedIn = true;
     } else {
-      errorField.textContent = '';
+      this.user = {};
+      this.isLoggedIn = false;
     }
+    this.toggleAuthOnlyContent();
   }
 
-  triggerOnInputChangeValidation() {
-    this.signInForm.addEventListener('keyup', (e) => {
-      this.validateInputField(e.target);
-    });
-    this.signUpForm.addEventListener('keyup', (e) => {
-      this.validateInputField(e.target);
-    });
+  signUserOut() {
+    this.user = {};
+    this.isLoggedIn = false;
+    window.localStorage.removeItem('user');
+    this.toggleAuthOnlyContent();
   }
 
-  getFormData(form) {
-    const authData = {};
-    const inputs = form.getElementsByTagName('input');
-    Array.from(inputs).forEach((input) => {
-      const validationResult = this.validateInputField(input);
-      if (validationResult) {
-        const { name, value } = input;
-        authData[name] = value;
-      }
-    });
-
-    return authData;
+  logUserIn(data) {
+    localStorage.setItem('user', JSON.stringify(data));
+    this.user = data;
+    this.isLoggedIn = true;
+    this.toggleAuthOnlyContent();
   }
 
-  makeRequest(requestType, dataObj = {}) {
-    const config = {
-      method: requestType,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
+  toggleAuthOnlyContent() {
+    const logOutBtn = document.querySelector('.nav__link_logout');
+    const loginLink = document.querySelector('.nav__link_login');
+    const userInfo = document.querySelector('.cartPage__user_info');
+    const userData = userInfo.querySelector('.cartPage__user_data');
 
-    if (Object.keys(dataObj).length) {
-      config.body = JSON.stringify(dataObj);
+    userData.insertAdjacentHTML('beforeend',
+      `<p>${this.user.name}</p>
+      <p>${this.user.email}</p>`);
+
+    if (this.isLoggedIn) {
+      logOutBtn.style.display = 'block';
+      loginLink.style.display = 'none';
+      userInfo.style.display = 'block';
+    } else {
+      userData.textContent = '';
+      logOutBtn.style.display = 'none';
+      loginLink.style.display = 'block';
+      userInfo.style.display = 'none';
     }
-
-    return fetch('http://localhost:3000/users', config);
   }
 }
 

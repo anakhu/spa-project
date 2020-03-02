@@ -1,3 +1,4 @@
+import CONFIG from './config.js';
 import '../dist/index.html';
 import '../dist/assets/styles/scss/styles.scss';
 import Router from './main/Router.js';
@@ -5,7 +6,8 @@ import Renderer from './main/Renderer.js';
 import FilterService from './main/FilterService.js';
 import CartService from './main/CartService.js';
 import CartObserver from './main/CartObsever.js';
-import AuthService from './main/AuthService.js';
+import FormService from './main/FormService.js';
+import { makeRequest } from './main/utils/makeRequest.js';
 
 
 class App {
@@ -15,7 +17,7 @@ class App {
     this.filterService = new FilterService();
     this.cartService = new CartService();
     this.cartObserver = new CartObserver();
-    this.authService = new AuthService();
+    this.formService = new FormService(this.router);
     this.renderer = new Renderer(this.router, this.filterService, this.cartService, this.cartObserver);
     this.filterService.subscribe(this.onFilterChange.bind(this));
     this.cartService.subscribe(this.onCartChange.bind(this));
@@ -23,7 +25,7 @@ class App {
   }
 
   init() {
-    fetch('http://localhost:3000/products')
+    makeRequest('products', 'GET')
       .then((data) => data.json())
       .then((products) => {
         this.products = products;
@@ -34,20 +36,30 @@ class App {
         this.router.renderRouteContent(window.location.pathname);
         this.filterService.init();
         this.cartService.init();
-        this.authService.initAuthForms();
-      })
-      // .catch((error) => console.log(error.message));
+        this.formService.initAuthForms();
+        this.cartService.initCartInputHadlers();
+        this.cartObserver.initObserver();
+      });
+    // .catch((error) => console.log(error.message));
   }
 
   initRouter() {
-    this.router.createNewRoute('/', this.renderer.displayPageContent.bind(this.renderer, 'js-homepage'));
-    this.router.createNewRoute('catalogue', this.renderer.displayPageContent.bind(this.renderer, 'js-catalogue-page', this.products));
-    this.router.createNewRoute('about', this.renderer.displayPageContent.bind(this.renderer, 'js-about-page'));
-    this.router.createNewRoute('contact', this.renderer.displayPageContent.bind(this.renderer, 'js-contact-page'));
-    this.router.createNewRoute('cart', this.renderer.displayPageContent.bind(this.renderer, 'js-cart-page'));
-    this.router.createNewRoute('product', this.renderer.displayPageContent.bind(this.renderer, 'js-single-page', this.products));
-    this.router.createNewRoute('404', this.renderer.displayPageContent.bind(this.renderer, 'js-error-page'));
-    this.router.createNewRoute('login', this.renderer.displayPageContent.bind(this.renderer, 'js-auth-page'));
+    Object.keys(CONFIG.routes).forEach((entry) => {
+      const { route, contentId } = CONFIG.routes[entry];
+      if (route !== CONFIG.routes.authPage.route) {
+        this.router.createNewRoute(route, this.renderer.renderPageContent.bind(this.renderer, contentId, this.products));
+      } else {
+        this.router.createNewRoute(route, () => {
+          if (window.localStorage.getItem('user')) {
+            const cartRoute = CONFIG.routes.cartPage.route;
+            window.history.pushState(null, null, `/${cartRoute}`);
+            this.router.renderRouteContent(window.location.pathname);
+          } else {
+            this.renderer.renderPageContent.call(this.renderer, contentId);
+          }
+        });
+      }
+    });
   }
 
   onFilterChange(data) {
@@ -56,12 +68,12 @@ class App {
   }
 
   onCartChange(data) {
-    if (window.location.pathname.includes('catalogue') || window.location.pathname.includes('product')) {
+    if (window.location.pathname.includes(CONFIG.routes.cataloguePage.route)
+      || window.location.pathname.includes(CONFIG.routes.productPage.route)) {
       window.localStorage.setItem('products', data);
       this.renderer.renderCart(this.products);
       this.cartService.initCartInputHadlers();
       this.cartObserver.initObserver();
-      this.cartObserver.calculateTotal();
     }
   }
 }
