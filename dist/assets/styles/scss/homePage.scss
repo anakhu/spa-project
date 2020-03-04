@@ -1,0 +1,96 @@
+@import 'variables';
+@import 'mixins';
+
+.lead__banner,
+.second__banner {
+  @include banner();
+}
+
+.lead__banner {
+  text-align: right;
+}
+
+section {
+  margin: 10px 0px;
+}
+
+
+.homePage__services {
+  ul {
+    display: flex;
+    justify-content: space-between;
+  
+    @include mQ(600px) {
+      padding-left: 0px;
+    }
+  }
+
+  li {
+    cursor: pointer;
+    flex: 0 0 (100% / 3);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  img {
+    width: 50%;
+    opacity: 0.4;
+    padding-bottom: 10px;
+  }
+
+  p {
+    margin-top: auto;
+    color: $mainColor;
+    font-weight: bold;
+    &:hover {
+      color: $supplColor;
+    }
+  }
+}
+
+.homePage__products {
+  width: 100%;
+  text-align: center;
+
+  ul {
+    padding: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    @include mQ(600px) {
+      padding-left: 0px;
+    }
+  }
+
+  img {
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    max-width: 200px;
+    max-height: 200px;
+
+    @include mQ(600px) {
+      max-width: 100px;
+      max-height: 100px;
+    }
+  }
+
+  li {
+    flex: 0 0 30%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+  }
+}
+  
+
+section h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: $mainHeadingColor;
+}

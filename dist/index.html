@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPA project</title>
+</head>
+<body>
+  <header>
+    <nav class="main__nav" id="js-main-nav"></nav>
+  </header>
+
+  <div id="appContent-wrapper" style="display: none;">
+
+    <div class="homepage-wrapper" id="js-homepage"></div>
+  
+    <div class="productPage-wrapper" id="js-catalogue-page">
+      <div class="prodcutPage__content">
+          <div class="productPage__filter" id="js-catalogue-filter"></div>
+          <div class="productPage__catalogue" id="js-catalogue"></div>
+      </div>
+    </div>
+  
+    <div class="aboutPage-wrapper" id="js-about-page"></div>
+  
+    <div class="cartPage-wrapper" id="js-cart-page">
+      <div class="cartPage__content">
+        <div class="cartPage__cart_order" id="js-order-card"></div>
+        <div class="cartPage__cart_wrapper"></div>
+      </div>
+    </div>
+  
+    <div class="errorPage-wrapper" id="js-error-page">
+      <div class="errorPage__content">Error</div>
+    </div>
+  
+    <div class="singlePage-wrapper" id="js-single-page"></div>
+
+    <div class="authPage-wrapper" id="js-auth-page"></div>
+  
+  
+  </div>
+  <script src="/bundle.js"></script>
+</body>
+</html>

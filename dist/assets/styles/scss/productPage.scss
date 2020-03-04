@@ -1,0 +1,73 @@
+@import 'variables';
+@import 'mixins';
+
+
+.productPage-wrapper {
+  margin-top: 10px;
+  padding: 0px 10px;
+}
+
+.prodcutPage__content {
+  display: flex;
+  justify-content: space-around;
+
+  @include mQ(600px) {
+    display: block;
+    justify-content: center;
+  }
+}
+
+.productPage__catalogue {
+  flex: 1 0 68%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.productPage__filter {
+  flex: 0 0 20%;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 5px;
+  width: auto;
+
+  @include mQ(600px) {
+    flex: 0 0 95%;
+  }
+}
+
+.catalogue__item {
+  @include card();
+  position: relative;
+  flex: 0 0 210px;
+  box-shadow: $borderShadow;
+
+  @include mQ(600px) {
+    flex: 100 95%;
+    width: 100%;
+  }
+}
+
+.catalogue__item_imgwrap {
+  text-align: center;
+  background-color: white;
+}
+
+.catalogue__item_info {
+  margin-top: auto;
+}
+
+.filter__group_label, .cart__details_label {
+  @include link();
+}
+
+
+.filter__group_content {
+  padding-left: 5px;
+  font-size: 0.8rem;
+}
+
+.filter__group_checkbox {
+  background-color: $ofWhite;
+}
