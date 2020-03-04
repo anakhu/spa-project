@@ -1,12 +1,16 @@
+import CONFIG from '../config.js';
+
+const { cart } = CONFIG.selectors;
+
 class CartObserver {
   constructor(router) {
     this.router = router;
-    this.cartOrderContainer = document.getElementById('js-order-card');
+    this.cartOrderContainer = document.querySelector(cart.order);
     this.orderMesssages = null;
   }
 
   initObserver() {
-    const nodesToObserve = document.querySelectorAll('.cart__item_input');
+    const nodesToObserve = document.querySelectorAll(cart.input);
     if (nodesToObserve) {
       this.initCartCalculator();
       this.calculateTotal();
@@ -14,8 +18,8 @@ class CartObserver {
   }
 
   initCartCalculator() {
-    const forms = document.querySelectorAll('.cart__item_input');
-    const deleteBtns = document.querySelectorAll('.cart__item_delete');
+    const forms = document.querySelectorAll(cart.input);
+    const deleteBtns = document.querySelectorAll(cart.delete);
 
     forms.forEach((form) => {
       form.addEventListener('change', () => this.calculateTotal());
@@ -30,19 +34,19 @@ class CartObserver {
   }
 
   calculateTotal() {
-    const total = document.querySelector('.cartPage__total');
+    const total = document.querySelector(cart.total);
 
-    const cartItems = document.querySelectorAll('.cart__item_wrapper');
+    const cartItems = document.querySelectorAll(cart.item);
 
     if (cartItems.length) {
       const priceTotal = Array.from(cartItems).reduce((totalSum, currentItem) => {
-        const flag = currentItem.querySelector('.cart__item_choose');
+        const flag = currentItem.querySelector(cart.choose);
         const { id } = currentItem.dataset;
 
         if (flag.checked) {
-          const name = currentItem.querySelector('.cart__item_name').textContent;
-          const price = currentItem.querySelector('.cart__item_price').dataset.value;
-          const quantity = currentItem.querySelector('.cart__item_quantity').value;
+          const name = currentItem.querySelector(cart.name).textContent;
+          const price = currentItem.querySelector(cart.price).dataset.value;
+          const quantity = currentItem.querySelector(cart.quantity).value;
           totalSum += price * quantity;
           this.renderCartOrderDetails(id, name, quantity);
         } else {
@@ -59,7 +63,7 @@ class CartObserver {
   }
 
   renderCartOrderDetails(id, name, quantity) {
-    const cartDetails = document.querySelector('.cartPage__details');
+    const cartDetails = document.querySelector(cart.details);
     if (cartDetails.children) {
       const found = Array.from(cartDetails.children)
         .find((item) => Number(item.id) === Number(id));
@@ -79,7 +83,7 @@ class CartObserver {
   }
 
   deleteCardOrderNote(id) {
-    const cartDetails = document.querySelector('.cartPage__details');
+    const cartDetails = document.querySelector(cart.details);
     const found = Array.from(cartDetails.children)
       .find((item) => Number(item.id) === Number(id));
 

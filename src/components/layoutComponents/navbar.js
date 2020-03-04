@@ -1,22 +1,25 @@
 import { NAVBAR_TEMPLATE } from '../templates.js';
+import CONFIG from '../../config.js';
+
+const { routes } = CONFIG;
 
 function initNavbar(navbar, render) {
   navbar.addEventListener('click', (e) => {
     switch (e.target.className) {
     case 'nav__link_home':
-      window.history.pushState(null, null, '/');
+      window.history.pushState(null, null, `${routes.homePage.route}`);
       break;
     case 'nav__link_about':
-      window.history.pushState(null, null, '/about');
+      window.history.pushState(null, null, `/${routes.aboutPage.route}`);
       break;
     case 'nav__link_catalogue':
-      window.history.pushState(null, null, '/catalogue');
+      window.history.pushState(null, null, `/${routes.cataloguePage.route}`);
       break;
     case 'nav__link_cart':
-      window.history.pushState(null, null, '/cart');
+      window.history.pushState(null, null, `/${routes.cartPage.route}`);
       break;
     case 'nav__link_login':
-      window.history.pushState(null, null, '/login');
+      window.history.pushState(null, null, `/${routes.authPage.route}`);
       break;
     default:
       break;

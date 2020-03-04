@@ -1,4 +1,7 @@
-import Observable from "./Observable.js";
+import CONFIG from '../config.js';
+import Observable from './Observable.js';
+
+const { filter, home } = CONFIG.selectors;
 
 class FilterService {
   constructor() {
@@ -11,10 +14,10 @@ class FilterService {
   }
 
   init() {
-    this.checkboxes = document.querySelectorAll('.filter__group_checkbox input');
-    this.homePageFilters = document.querySelectorAll('.homePage__products img');
-    this.resetFiltersBtn = document.querySelector('.filter__button_reset');
-    this.priceInput = document.querySelector('.filter__group_price');
+    this.checkboxes = document.querySelectorAll(filter.checkbox);
+    this.homePageFilters = document.querySelectorAll(home.img);
+    this.resetFiltersBtn = document.querySelector(filter.reset);
+    this.priceInput = document.querySelector(filter.price);
 
     this.resetFiltersBtn.addEventListener('click', () => {
       this.resetFilters();
@@ -23,7 +26,7 @@ class FilterService {
     this.priceInput.addEventListener('change', (e) => {
       this.onInputRangeChange(e.target.value);
       this.handleFilterChange();
-      const currentVal = document.querySelector('.filter__price_current');
+      const currentVal = document.querySelector(filter.currentPrice);
       currentVal.textContent = e.target.value;
     });
 
@@ -56,17 +59,18 @@ class FilterService {
 
   initFilters() {
     if (Object.keys(this.filters).length) {
-      this.checkboxes.forEach((filter) => {
-        if (this.filters[filter.name] && this.filters[filter.name].includes(filter.value)) {
-          filter.checked = true;
-          const container = filter.closest('.filter__group_content');
+      this.checkboxes.forEach((currentFilter) => {
+        const { name, value } = currentFilter;
+        if (this.filters[name] && this.filters[name].includes(value)) {
+          currentFilter.checked = true;
+          const container = currentFilter.closest(filter.content);
           container.style.display = 'block';
         }
       });
     }
     if (this.filters.price) {
       this.priceInput.value = this.filters.price;
-      const currentVal = document.querySelector('.filter__price_current');
+      const currentVal = document.querySelector(filter.currentPrice);
       currentVal.textContent = this.filters.price;
     }
   }

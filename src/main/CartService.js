@@ -1,4 +1,7 @@
+import CONFIG from '../config.js';
 import Observable from './Observable.js';
+
+const { cart, catalogue } = CONFIG.selectors;
 
 class CartService {
   constructor() {
@@ -13,10 +16,10 @@ class CartService {
   }
 
   init() {
-    this.carts = document.querySelectorAll('.catalogue__item_add');
-    this.carts.forEach((cart) => {
-      cart.addEventListener('click', (e) => {
-        const itemId = e.target.closest('.catalogue__item').dataset.id;
+    this.carts = document.querySelectorAll(catalogue.add);
+    this.carts.forEach((cartItem) => {
+      cartItem.addEventListener('click', (e) => {
+        const itemId = e.target.closest(catalogue.item).dataset.id;
         this.addProductToCart(itemId);
       });
     });
@@ -35,7 +38,7 @@ class CartService {
 
 
   deleteProductFromCart(id) {
-    const cartItems = document.querySelectorAll('.cart__item_wrapper');
+    const cartItems = document.querySelectorAll(cart.item);
     const itemToDelete = Array.from(cartItems).find((item) => Number(item.dataset.id) === Number(id));
     if (itemToDelete) {
       delete this.productsInCart[id];
@@ -60,7 +63,7 @@ class CartService {
 
 
   initDeleteButtons() {
-    const deleteButtons = document.querySelectorAll('.cart__item_delete');
+    const deleteButtons = document.querySelectorAll(cart.delete);
     deleteButtons.forEach((button) => {
       button.addEventListener('click', (e) => {
         const { id } = e.target.dataset;
@@ -70,7 +73,7 @@ class CartService {
   }
 
   initCartNumberInput() {
-    const numberInputs = document.querySelectorAll('.cart__item_quantity');
+    const numberInputs = document.querySelectorAll(cart.quantity);
     numberInputs.forEach((input) => {
       input.addEventListener('change', (e) => {
         if (Number(e.target.value) < 1) {

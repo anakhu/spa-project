@@ -44,7 +44,7 @@ class App {
         this.cartService.initCartInputHadlers();
         this.cartObserver.initObserver();
       })
-    // .catch((error) => console.log(error.message));
+      .catch((error) => console.log(error.message));
   }
 
   initRouter() {

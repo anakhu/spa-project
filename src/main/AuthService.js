@@ -1,4 +1,8 @@
+import CONFIG from '../config.js';
 import { makeRequest } from './utils/makeRequest.js';
+
+const { cart, nav, auth } = CONFIG.selectors;
+const { route } = CONFIG.routes.cartPage;
 
 class AuthService {
   constructor(router, cartService) {
@@ -13,8 +17,8 @@ class AuthService {
   }
 
   init() {
-    this.authErrors = document.querySelector('.auth__form_error');
-    this.orderMesssages = document.querySelector('.cartPage__order_message');
+    this.authErrors = document.querySelector(auth.error);
+    this.orderMesssages = document.querySelector(cart.orderMessage);
   }
 
   signUserIn() {
@@ -43,10 +47,10 @@ class AuthService {
   }
 
   toggleAuthOnlyContent() {
-    const logOutBtn = document.querySelector('.nav__link_logout');
-    const loginLink = document.querySelector('.nav__link_login');
-    const userInfo = document.querySelector('.cartPage__user_info');
-    const userData = userInfo.querySelector('.cartPage__user_data');
+    const logOutBtn = document.querySelector(nav.logout);
+    const loginLink = document.querySelector(nav.login);
+    const userInfo = document.querySelector(cart.userInfo);
+    const userData = userInfo.querySelector(cart.userData);
 
     userData.insertAdjacentHTML('beforeend',
       `<p>${this.user.name}</p>
@@ -75,7 +79,7 @@ class AuthService {
             name,
             email,
           });
-          window.history.pushState(null, null, '/cart');
+          window.history.pushState(null, null, `/${route}`);
           this.router.renderRouteContent(window.location.pathname);
         } else {
           this.authErrors.textContent = 'Login failed';
@@ -93,7 +97,7 @@ class AuthService {
             name,
             email,
           });
-          window.history.pushState(null, null, '/cart');
+          window.history.pushState(null, null, `/${route}`);
           this.router.renderRouteContent(window.location.pathname);
         }
       })
@@ -103,7 +107,7 @@ class AuthService {
   processOrderRequest() {
     if (this.isLoggedIn) {
       this.orderMesssages.textContent = '';
-      const products = document.querySelectorAll('.cartPage__details div');
+      const products = document.querySelectorAll(`${cart.details} div`);
       if (products.length) {
         const { name, email } = this.user;
         const orderData = {
@@ -118,14 +122,14 @@ class AuthService {
         makeRequest('orders', 'POST', orderData)
           .then((res) => {
             if (res.status === 201) {
-              const cards = document.querySelectorAll('.cart__item_wrapper');
+              const cards = document.querySelectorAll(cart.item);
               cards.forEach((card) => {
                 const { id } = card.dataset;
                 if (orderData[id]) {
                   this.cartService.deleteProductFromCart(id);
-                  const total = document.querySelector('.cartPage__total');
+                  const total = document.querySelector(cart.total);
                   total.textContent = '';
-                  const details = document.querySelector('.cartPage__details');
+                  const details = document.querySelector(cart.details);
                   details.textContent = '';
                 }
               });

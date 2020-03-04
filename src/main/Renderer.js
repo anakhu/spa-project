@@ -1,3 +1,4 @@
+import CONFIG from '../config.js';
 import renderNavbar from '../components/layoutComponents/navbar.js';
 import renderHomePage from '../components/homePageComponents/homepage.js';
 import renderCatalogue from '../components/catalogueComponents/catalogue.js';
@@ -7,7 +8,9 @@ import renderOrderCard from '../components/cartComponents/order.js';
 import SinglePage from '../components/singlePageComponents/singlePage';
 import renderAuthForms from '../components/authComponents/login.js';
 import renderAboutPage from '../components/aboutComponents/aboutPage.js';
+import renderErrorPage from '../components/errorComponents/errorPage.js';
 
+const { catalogue } = CONFIG.selectors;
 
 class Renderer {
   constructor(router, checkboxService, cartService, cartObserver) {
@@ -27,6 +30,7 @@ class Renderer {
     this.renderFilters(data);
     renderOrderCard();
     renderAuthForms();
+    renderErrorPage();
     this.appContainer.style.display = 'block';
   }
 
@@ -68,13 +72,12 @@ class Renderer {
       }
     }
     if (window.location.pathname.includes('product')) {
-      console.log('includes product');
       this.displaySinglePageContent(data);
     }
     if (window.location.search && window.location.pathname.includes('catalogue')) {
       this.displayFilteredContent(data);
     } else {
-      const productCards = Array.from(document.querySelectorAll('.catalogue__item'));
+      const productCards = Array.from(document.querySelectorAll(catalogue.item));
       productCards.forEach((productCard) => {
         productCard.style.display = 'flex';
       });
@@ -83,7 +86,7 @@ class Renderer {
 
   displayFilteredContent(data) {
     const filters = this.checkboxService.getFilters();
-    const productCards = Array.from(document.querySelectorAll('.catalogue__item'));
+    const productCards = Array.from(document.querySelectorAll(catalogue.item));
     [...data].forEach((product) => {
       const isFound = Object.keys(filters).every((key) => {
         if (key === 'price') {

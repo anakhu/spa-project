@@ -1,8 +1,12 @@
 import { SINGLE_PAGE_TEMPLATE } from '../templates.js';
+import CONFIG from '../../config.js';
+
+const { contentId } = CONFIG.routes.productPage;
+const { page } = CONFIG.selectors;
 
 class SinglePage {
   constructor() {
-    this.singlePageContainer = document.getElementById('js-single-page');
+    this.singlePageContainer = document.getElementById(contentId);
     if (SinglePage.instance) {
       return SinglePage.instance;
     }
@@ -18,7 +22,7 @@ class SinglePage {
   }
 
   resetPage() {
-    const pageContent = document.querySelector('.singlePage__content');
+    const pageContent = document.querySelector(page.content);
     if (pageContent) {
       pageContent.remove();
     }

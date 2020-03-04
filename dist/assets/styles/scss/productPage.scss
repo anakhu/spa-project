@@ -58,8 +58,11 @@
   margin-top: auto;
 }
 
-.filter__group_label, .cart__details_label {
+.filter__group_label, 
+.cart__details_label {
   @include link();
+  background-color: $ofGrey;
+  color: $font;
 }
 
 

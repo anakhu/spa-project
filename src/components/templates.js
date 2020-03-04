@@ -226,6 +226,7 @@ export const ABOUT_PAGE_TEMPLATE = () => `
       <ul>
         <li>
           <img src="/assets/img/about/wine.jpg"></img>
+          <h5>Lorem ipsum dolor sit amet</h5>
           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -235,6 +236,7 @@ export const ABOUT_PAGE_TEMPLATE = () => `
         </li>
         <li>
           <img src="/assets/img/about/whiskey.png"></img>
+          <h5>Lorem ipsum dolor sit amet</h5>
           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -244,6 +246,7 @@ export const ABOUT_PAGE_TEMPLATE = () => `
         </li>
         <li>
           <img src="/assets/img/about/martini.jpg"></img>
+          <h5>Lorem ipsum dolor sit amet</h5>
           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -252,32 +255,43 @@ export const ABOUT_PAGE_TEMPLATE = () => `
           </div>
         </li>
         <li>
-        <img src="/assets/img/about/tequila.jpg"></img>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
+          <img src="/assets/img/about/tequila.jpg"></img>
+          <h5>Lorem ipsum dolor sit amet</h5>
+          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </li>
+        <li>
+          <img src="/assets/img/about/beer.jpg"></img>
+          <h5>Lorem ipsum dolor sit amet</h5>
+          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
       </li>
       <li>
-        <img src="/assets/img/about/beer.jpg"></img>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </li>
-      <li>
-        <img src="/assets/img/about/cognac.jpg"></img>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
+          <img src="/assets/img/about/cognac.jpg"></img>
+          <h5>Lorem ipsum dolor sit amet</h5>
+          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
       </li>
       </ul>
     </div>
   </section>`;
+
+export const ERROR_PAGE = () => `
+  <div>
+    <h1>Something went wrong!</h1>
+    <h5>Page doesn't exist =(</h5>
+    <img src="/assets/img/error/error.jpg" />
+  </div>
+  `;

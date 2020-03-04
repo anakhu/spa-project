@@ -1,9 +1,12 @@
 import { CART_ITEM_TEMPLATE } from '../templates.js';
+import CONFIG from '../../config.js';
+
+const { cart } = CONFIG.selectors;
 
 class Cart {
   constructor() {
-    this.cartPageContent = document.querySelector('.cartPage__content');
-    this.cartWrapper = document.querySelector('.cartPage__cart_wrapper');
+    this.cartPageContent = document.querySelector(cart.content);
+    this.cartWrapper = document.querySelector(cart.wrapper);
 
     if (Cart.instance) {
       return Cart.instance;
@@ -32,7 +35,7 @@ class Cart {
   }
 
   resetCart() {
-    const cartItem = document.querySelectorAll('.cart__item_wrapper');
+    const cartItem = document.querySelectorAll(cart.item);
     cartItem.forEach((item) => item.remove());
   }
 }

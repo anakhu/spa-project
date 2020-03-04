@@ -1,4 +1,7 @@
 import { FORM_TEMPLATE } from '../templates.js';
+import CONFIG from '../../config.js';
+
+const { contentId } = CONFIG.routes.authPage;
 
 function initAuthForms(formContainer) {
   const formLinks = formContainer.querySelector('ul');
@@ -13,7 +16,7 @@ function initAuthForms(formContainer) {
 }
 
 function renderAuthForms() {
-  const authFormsContainer = document.getElementById('js-auth-page');
+  const authFormsContainer = document.getElementById(contentId);
   authFormsContainer.insertAdjacentHTML('beforeend', FORM_TEMPLATE());
 
   initAuthForms(authFormsContainer);

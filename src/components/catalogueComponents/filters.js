@@ -2,10 +2,11 @@ import { PRICE_INPUT_TEMPLATE, CHECKBOX_TEMPLATE } from '../templates.js';
 import CONFIG from '../../config.js';
 
 const { filters } = CONFIG;
+const { filter } = CONFIG.selectors;
 
 class Filters {
   constructor() {
-    this.filtersContaniner = document.getElementById('js-catalogue-filter');
+    this.filtersContaniner = document.querySelector(filter.wrapper);
     this.checkboxes = {};
   }
 
@@ -46,7 +47,7 @@ class Filters {
   drawCheckboxes() {
     for (const [key, value] of Object.entries(this.checkboxes)) {
       const filterGroup = document.createElement('div');
-      filterGroup.setAttribute('class', 'catalogue__filter_group');
+      filterGroup.setAttribute('class', filter.container);
       filterGroup.insertAdjacentHTML('beforeend',
         `<div class="filter__group_label">${key.toUpperCase()}</div>`);
 

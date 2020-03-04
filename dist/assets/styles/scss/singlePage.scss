@@ -9,7 +9,6 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  box-shadow: $borderShadow;
 
   @include mQ(600px) {
     display: block;

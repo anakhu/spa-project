@@ -25,7 +25,6 @@ class Router {
 
   renderRouteContent(url) {
     const pathName = url.split('/')[1] || '/';
-    console.log(pathName);
 
     if (Object.prototype.hasOwnProperty.call(this.routes, pathName)) {
       this.routes[pathName]();

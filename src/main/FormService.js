@@ -1,6 +1,8 @@
 import CONFIG from '../config.js';
 import validate from './utils/validator.js';
 
+const { cart, nav, forms } = CONFIG.selectors;
+
 class FormService {
   constructor(router, auth) {
     this.router = router;
@@ -17,12 +19,12 @@ class FormService {
     this.auth.init();
     this.auth.signUserIn();
 
-    const logOutBtn = document.querySelector('.nav__link_logout');
+    const logOutBtn = document.querySelector(nav.logout);
     logOutBtn.addEventListener('click', () => {
       this.auth.signUserOut();
     });
 
-    const orderBtn = document.querySelector('.cartPage__order_buy');
+    const orderBtn = document.querySelector(cart.buy);
     orderBtn.addEventListener('click', () => {
       if (this.auth.isLoggedIn) {
         this.auth.processOrderRequest();
@@ -34,7 +36,7 @@ class FormService {
   }
 
   initSignInForm() {
-    this.signInForm = document.getElementById('js-sign-in-form');
+    this.signInForm = document.getElementById(forms.signIn);
     this.signInForm.addEventListener('submit', (e) => {
       e.preventDefault();
       this.auth.authErrors.textContent = '';
@@ -47,7 +49,7 @@ class FormService {
   }
 
   initSignUpForm() {
-    this.signUpForm = document.getElementById('js-sign-up-form');
+    this.signUpForm = document.getElementById(forms.signUp);
     this.signUpForm.addEventListener('submit', (e) => {
       e.preventDefault();
       this.auth.authErrors.textContent = '';
