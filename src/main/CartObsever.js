@@ -1,6 +1,8 @@
 class CartObserver {
-  constructor() {
+  constructor(router) {
+    this.router = router;
     this.cartOrderContainer = document.getElementById('js-order-card');
+    this.orderMesssages = null;
   }
 
   initObserver() {
@@ -21,7 +23,7 @@ class CartObserver {
 
     deleteBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
-        this.deleteCardOrderNote(e.target.dataset.index);
+        this.deleteCardOrderNote(e.target.dataset.id);
         this.calculateTotal();
       });
     });
@@ -70,6 +72,7 @@ class CartObserver {
     }
     const details = document.createElement('div');
     details.setAttribute('id', id);
+    details.dataset.value = quantity;
 
     details.textContent = `${name} : ${quantity}`;
     cartDetails.appendChild(details);

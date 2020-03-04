@@ -7,6 +7,7 @@ import FilterService from './main/FilterService.js';
 import CartService from './main/CartService.js';
 import CartObserver from './main/CartObsever.js';
 import FormService from './main/FormService.js';
+import AuthService from './main/AuthService.js';
 import { makeRequest } from './main/utils/makeRequest.js';
 
 
@@ -16,8 +17,9 @@ class App {
     this.router = new Router();
     this.filterService = new FilterService();
     this.cartService = new CartService();
-    this.cartObserver = new CartObserver();
-    this.formService = new FormService(this.router);
+    this.cartObserver = new CartObserver(this.router);
+    this.authService = new AuthService(this.router, this.cartService);
+    this.formService = new FormService(this.router, this.authService);
     this.renderer = new Renderer(this.router, this.filterService, this.cartService, this.cartObserver);
     this.filterService.subscribe(this.onFilterChange.bind(this));
     this.cartService.subscribe(this.onCartChange.bind(this));
@@ -34,12 +36,14 @@ class App {
         this.initRouter();
         this.renderer.initApp(this.products);
         this.router.renderRouteContent(window.location.pathname);
+      })
+      .then(() => {
         this.filterService.init();
         this.cartService.init();
         this.formService.initAuthForms();
         this.cartService.initCartInputHadlers();
         this.cartObserver.initObserver();
-      });
+      })
     // .catch((error) => console.log(error.message));
   }
 

@@ -33,13 +33,16 @@ class CartService {
     this.observable.next(JSON.stringify(this.productsInCart));
   }
 
-  deleteProductFromCart(e) {
-    const { index } = e.target.dataset;
-    delete this.productsInCart[index];
-    e.target.closest('.cart__item_wrapper').remove();
-    this.updateLocalStorage();
-  }
 
+  deleteProductFromCart(id) {
+    const cartItems = document.querySelectorAll('.cart__item_wrapper');
+    const itemToDelete = Array.from(cartItems).find((item) => Number(item.dataset.id) === Number(id));
+    if (itemToDelete) {
+      delete this.productsInCart[id];
+      itemToDelete.remove();
+      this.updateLocalStorage();
+    }
+  }
 
   addProductToCart(itemId) {
     if (!Object.prototype.hasOwnProperty.call(this.productsInCart, itemId)) {
@@ -59,7 +62,10 @@ class CartService {
   initDeleteButtons() {
     const deleteButtons = document.querySelectorAll('.cart__item_delete');
     deleteButtons.forEach((button) => {
-      button.addEventListener('click', (e) => this.deleteProductFromCart(e));
+      button.addEventListener('click', (e) => {
+        const { id } = e.target.dataset;
+        this.deleteProductFromCart(id);
+      });
     });
   }
 

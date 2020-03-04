@@ -2,7 +2,6 @@ const CONFIG = {
   api: 'http://localhost:3000',
   routes: {
     homePage: { route: '/', contentId: 'js-homepage' },
-    contactPage: { route: 'contact', contentId: 'js-contact-page' },
     aboutPage: { route: 'about', contentId: 'js-about-page' },
     cataloguePage: { route: 'catalogue', contentId: 'js-catalogue-page' },
     productPage: { route: 'product', contentId: 'js-single-page' },

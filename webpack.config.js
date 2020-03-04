@@ -36,7 +36,16 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'style-loader', 'css-loader', 'sass-loader',
+          'style-loader', 'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                indentWidth: 4,
+                includePaths: ['dist/assets/styles/scss'],
+              },
+            },
+          },
         ],
       },
       {

@@ -6,6 +6,7 @@ import Cart from '../components/cartComponents/cart.js';
 import renderOrderCard from '../components/cartComponents/order.js';
 import SinglePage from '../components/singlePageComponents/singlePage';
 import renderAuthForms from '../components/authComponents/login.js';
+import renderAboutPage from '../components/aboutComponents/aboutPage.js';
 
 
 class Renderer {
@@ -19,6 +20,7 @@ class Renderer {
 
   initApp(data) {
     renderHomePage(this.router.renderRouteContent.bind(this.router));
+    renderAboutPage();
     renderNavbar(this.router.renderRouteContent.bind(this.router));
     renderCatalogue(data, this.router.renderRouteContent.bind(this.router));
     this.renderCart(data);

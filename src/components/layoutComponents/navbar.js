@@ -12,9 +12,6 @@ function initNavbar(navbar, render) {
     case 'nav__link_catalogue':
       window.history.pushState(null, null, '/catalogue');
       break;
-    case 'nav__link_contact':
-      window.history.pushState(null, null, '/contact');
-      break;
     case 'nav__link_cart':
       window.history.pushState(null, null, '/cart');
       break;
