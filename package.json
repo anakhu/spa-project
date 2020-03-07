@@ -30,10 +30,7 @@
   },
   "dependencies": {
     "jquery": "^3.4.1",
-    "jquery-ui": "^1.12.1",
     "json-server": "^0.16.0",
-    "materialize-css": "^1.0.0-rc.2",
-    "sass-resources-loader": "^2.0.1",
-    "webpack-jquery-ui": "^2.0.1"
+    "sass-resources-loader": "^2.0.1"
   }
 }

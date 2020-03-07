@@ -1,7 +1,9 @@
-import { NAVBAR_TEMPLATE } from '../templates.js';
+import $ from 'jquery';
+import { NAVBAR_TEMPLATE } from './navbar-template.js';
 import CONFIG from '../../config.js';
 
 const { routes } = CONFIG;
+const { nav } = CONFIG.selectors;
 
 function initNavbar(navbar, render) {
   navbar.addEventListener('click', (e) => {
@@ -28,10 +30,42 @@ function initNavbar(navbar, render) {
   });
 }
 
+function initNavResize() {
+  window.onresize = () => {
+    if ($(window).width() > 600) {
+      $(nav.main).css('display', 'block');
+    }
+  };
+}
+
+function addNavbarToggler(mainNavbar) {
+  const header = document.querySelector('header');
+  header.insertAdjacentHTML('beforeend', `
+  <img class="nav__toggle" src="/assets/img/homepage/navbar.png" />`);
+
+  const navToggler = document.querySelector(nav.toggle);
+  navToggler.addEventListener('click', () => {
+    const { display } = mainNavbar.style;
+
+    if (display === 'block') {
+      $(nav.main).slideUp(500, () => {
+        mainNavbar.style.display = 'none';
+      });
+    } else {
+      $(nav.main).slideDown(500, () => {
+        mainNavbar.style.display = 'block';
+      });
+    }
+  });
+}
+
 function renderNavbar(render) {
-  const navbar = document.getElementById('js-main-nav');
+  const navbar = document.querySelector(nav.main);
+  navbar.style.display = 'block';
   navbar.insertAdjacentHTML('beforeend', NAVBAR_TEMPLATE());
   initNavbar(navbar, render);
+  addNavbarToggler(navbar);
+  initNavResize();
 }
 
 export default renderNavbar;

@@ -3,11 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Yantramanav&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <title>SPA project</title>
 </head>
+<script>
+  $(window).load(function() {
+		$(".se-pre-con").fadeOut(1500);;
+	});
+</script>
 <body>
+  <div class="se-pre-con">
+    <div class="loader">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+
   <header>
-    <nav class="main__nav" id="js-main-nav"></nav>
+    <nav class="main__nav"></nav>
   </header>
 
   <div id="appContent-wrapper" style="display: none;">
@@ -15,9 +33,12 @@
     <div class="homepage-wrapper" id="js-homepage"></div>
   
     <div class="productPage-wrapper" id="js-catalogue-page">
-      <div class="prodcutPage__content">
+      <div class="productPage__content">
+        <div class="aside">
           <div class="productPage__filter" id="js-catalogue-filter"></div>
-          <div class="productPage__catalogue" id="js-catalogue"></div>
+          <div class="ads"></div>
+        </div>
+        <div class="productPage__catalogue" id="js-catalogue"></div>
       </div>
     </div>
   
@@ -25,7 +46,10 @@
   
     <div class="cartPage-wrapper" id="js-cart-page">
       <div class="cartPage__content">
-        <div class="cartPage__cart_order"></div>
+        <div class="aside">
+          <div class="cartPage__cart_order"></div>
+          <div class="ads"></div>
+        </div>
         <div class="cartPage__cart_wrapper"></div>
       </div>
     </div>
@@ -35,9 +59,8 @@
     <div class="singlePage-wrapper" id="js-single-page"></div>
 
     <div class="authPage-wrapper" id="js-auth-page"></div>
-  
-  
   </div>
   <script src="/bundle.js"></script>
+</body>
 </body>
 </html>

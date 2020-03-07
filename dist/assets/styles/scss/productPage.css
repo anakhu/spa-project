@@ -1,0 +1,211 @@
+.productPage__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+  .productPage__content {
+    display: block;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.productPage__content .aside {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  padding: 5px;
+  width: auto;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+@media screen and (max-width: 600px) {
+  .productPage__content .aside {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 95%;
+            flex: 0 0 95%;
+  }
+}
+
+.productPage__content .aside .ads .ads_item {
+  margin: 30px auto;
+  cursor: pointer;
+}
+
+.productPage__content .aside .ads .ads_item div {
+  width: 70%;
+  height: 130px;
+  margin: 10px auto;
+  background-color: #0B0014;
+  opacity: 0.2;
+  text-align: center;
+}
+
+.productPage__content .aside .ads .ads_item p {
+  margin: 0px;
+  text-align: center;
+  color: #0B0014;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .productPage__content .aside .ads {
+    display: none;
+  }
+}
+
+.productPage__catalogue {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 67%;
+          flex: 0 0 67%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.productPage__filter {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  padding: 5px;
+  width: auto;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+}
+
+@media screen and (max-width: 600px) {
+  .productPage__filter {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 95%;
+            flex: 0 0 95%;
+  }
+}
+
+.catalogue__item {
+  cursor: pointer;
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 210px;
+          flex: 0 0 210px;
+  -webkit-box-shadow: 9px 11px 20px -7px #F5E9E2;
+          box-shadow: 9px 11px 20px -7px #F5E9E2;
+}
+
+.catalogue__item img {
+  max-width: 100%;
+  margin: 10px auto;
+  height: 160px;
+  padding-top: 3%;
+}
+
+.catalogue__item h5 {
+  color: #0B0014;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.catalogue__item p {
+  color: #D44D5C;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.catalogue__item .ok {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  right: 5%;
+  opacity: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .catalogue__item {
+    -webkit-box-flex: 100;
+        -ms-flex: 100 95%;
+            flex: 100 95%;
+    width: 100%;
+  }
+}
+
+.catalogue__item_imgwrap {
+  text-align: center;
+  background-color: white;
+}
+
+.catalogue__item_info {
+  margin-top: auto;
+}
+
+.filter__group_label,
+.cart__details_label {
+  color: white;
+  background-color: #773344;
+  padding: 5px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px 0px;
+  background-color: #E3B5A4;
+  color: #0B0014;
+}
+
+.filter__group_label:hover,
+.cart__details_label:hover {
+  background-color: #9b4258;
+}
+
+.filter__group_content {
+  padding-left: 5px;
+  font-size: 0.8rem;
+}
+
+.filter__group_checkbox {
+  background-color: white;
+}
+
+.done {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+/*# sourceMappingURL=productPage.css.map */

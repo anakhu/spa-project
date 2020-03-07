@@ -1,5 +1,5 @@
 import CONFIG from '../../config.js';
-import { ERROR_PAGE } from '../templates.js';
+import { ERROR_PAGE } from './error-template.js';
 
 const { contentId } = CONFIG.routes.errorPage;
 

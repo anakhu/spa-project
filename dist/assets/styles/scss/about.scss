@@ -1,9 +1,16 @@
 @import 'variables';
 @import 'mixins';
 
+.aboutPage-wrapper {
+  section {
+    @include pageContent();
+  }
+}
+
+
 .aboutPage__content {
   text-align: justify;
-  
+
   div {
     padding: 10px;
   }
@@ -11,21 +18,28 @@
 
 .aboutPage__articles {
   box-sizing: border-box;
-  padding: 10px;
- 
+
+  div {
+    text-align: justify;
+    padding: 2%;
+  }
 
   ul {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
     flex-flow: row wrap;
+    align-items: flex-start;
   }
 
   li {
-    margin: 5px;
+    padding: 5px;
     flex: 0 0 30%;
     text-align: center;
-    align-self: flex-start;
+
+    @include mQ(1000px) {
+      flex: 1 0 45%;
+    }
+
 
     @include mQ(600px) {
       flex: 1 0 100%;
@@ -34,13 +48,8 @@
 
   img {
     width: 100%;
-    height: 100%;
-    max-width: 200px;
-    max-height: 200px;
-  }
-
-  div {
-    text-align: justify;
+    // max-width: 200px;
+    // max-height: 200px;
   }
   
   h5 {
@@ -48,4 +57,8 @@
     font-size: 1rem;
     margin-top: 20px;
   }
+}
+
+.aboutPage__offer {
+  @include offer();
 }

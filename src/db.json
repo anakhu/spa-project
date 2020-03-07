@@ -5,6 +5,7 @@
       "name": "Chateau Guiraud Petit Guiraud 0.375L",
       "brand": "Chateau Guiraud",
       "manufacturer": "France",
+      "logo": "",
       "description": "Le Petit Guiraud is a modern, fresh Sauternes that emphasizes the tension between botrytis-tinged sweetness and clean Sauvignon Blanc. Early apricots, honeycomb, orange butter combine across an intricate palate woven with zippy minerality and lemon curd. Balanced and complex, this is an ideal everyday Sauternes, meant for light desserts and also quail, roasted poultry with figs. The Petit Guiraud is 35 % Sauvignon Blanc and 65% Sémillon. Fermented separately by parcel and matured in new barrel 12 months. Château Guiraud is located in Barsac, a commune of the Sauternes appellation. The area is situated at higher elevation than Sauternes, is noted for its accessible, non-cloying dessert wines.",
       "volume": 0.375,
       "price": 12,
@@ -22,6 +23,7 @@
       "name": "Bach Extrisima Rosado 0.75L",
       "brand": "Bach",
       "manufacturer": "Spain",
+      "logo": "",
       "description": "A clear and bright wine, with an intense and persistent aroma of red fruits. It is a classic pink, elegant and subtle. An ideal matching with a variety of dishes including cold meats, rice dishes, pastas, pizzas as well as fish such as monkfish, cod, tuna and white meats.",
       "volume": 0.75,
       "price": 6,
@@ -39,9 +41,10 @@
       "name": "Torres Gran Sangre de Toro 0.75L",
       "brand": "Torres",
       "manufacturer": "Spain",
+      "logo": "assets/img/homepage/torres.jpg",
       "description": "Torres Gran Sangre De Toro Reserva is a red wine made by Torres in Cataluyna. ... Thus, ennobled by ageing in oak, this wine was born with its intense colour and its rich and fruity aroma. Aged for 12 months in European oak (20% new oak).",
       "volume": 0.75,
-      "price": 9.3,
+      "price": 9,
       "package": "no package",
       "spirit type": "wine",
       "typeOfWine": "red",
@@ -56,6 +59,7 @@
       "name": "Bottega Ripasso della Valpolicella 0.75L",
       "brand": "Bottega",
       "manufacturer": "Spain",
+      "logo": "",
       "description": "Ripasso is a traditional wine of Valpolicella (VR). It is an enological novelty which stands out thanks to its double fermentation, which refines the best aromas. ... This wine is then fermented once again, with the marcs resulting after the vinification of Amarone.",
       "price": 16,
       "volume": 0.75,
@@ -73,6 +77,7 @@
       "name": "Jim Beam Original 1L",
       "brand": "Jim Beam",
       "manufacturer": "the USA",
+      "logo": "assets/img/homepage/jim-beam.jpg",
       "description": "It was given the name “Jim Beam” in 1933 after Colonel James B. Beam, who rebuilt the business following Prohibition. When you take a sip of Jim Beam Original, you're savoring a Kentucky bourbon whiskey that has been produced essentially the same way by the same family for more than 200 years.",
       "price": 11,
       "volume": 1,
@@ -88,6 +93,7 @@
       "name": "Black Velvet 1L",
       "brand": "Black Velvet",
       "manufacturer": "Canada",
+      "logo": "assets/img/homepage/black-velvet.jpg",
       "description": "This spirit has a rich taste of sweet homemade cakes, honey and toasted malt, fresh citrus tones and vibrant sherbet. The aftertaste is pleasant and exciting. The aroma of the whiskey reveals notes of honeysuckle, green apple, pear, green grapes, with warm tones and a dry hay and oak chips.",
       "price": 10,
       "volume": 1,
@@ -103,6 +109,7 @@
       "name": "Lauder's Scotch Whisky 1L",
       "brand": "Lauder's",
       "manufacturer": "Scotland",
+      "logo": "assets/img/homepage/lauders.jpg",
       "description": "All the sweet smoothness of Lauder's Original can be detected in Lauder's 12 Year Old.  Added to this is a greater complexity and maturity of malts, a richer aroma and a longer finish which avoids the heaviness and unbalanced smokiness of some 12 Year Old blends.",
       "price": 10,
       "volume": 1,
@@ -118,6 +125,7 @@
       "name": "Jameson 1L",
       "brand": "Jameson",
       "manufacturer": "Ireland",
+      "logo": "assets/img/homepage/jameson.jpg",
       "description": "To the nose, Jameson has a light floral fragrance, peppered with spicy wood and sweet notes. Perfect balance of spicy, nutty and vanilla notes with hints of sweet sherry and exceptional smoothness.",
       "price": 19,
       "volume": 1,
@@ -133,8 +141,9 @@
       "name": "Bushmills Original 40% Gift Pack+2 Glasses 1L",
       "brand": "Bushmills",
       "manufacturer": "Ireland",
+      "logo": "",
       "description": "Grain whiskey reserved for Bushmills Original is slowly matured for a minimum of five years in American oak casks before blending with Irish Single Malt to produce this popular whiskey.",
-      "price": 16.5,
+      "price": 16,
       "volume": 1,
       "package": "gift package",
       "spirit type": "whiskey",
@@ -147,9 +156,10 @@
       "id": 10,
       "name": "Black Velvet Reserve 8 YO Whisky 1L",
       "brand": "Black Velvet",
+      "logo": "",
       "manufacturer": "Canada",
       "description": "One of the most popular Canadian blends. Whiskeys aging in oak barrels for 8 years provide a mild flavor with notes of nuts, chocolate, caramel, hot spices and oak wood. Complex, rich flavor includes shades of caramel, chocolate, raisins, dried fruit and oak. The dense texture and a complex, multi-faceted taste don’t allow to drink this spirit like any other one— just to enjoy it sip after sip or in combination with the classic ingredients of cocktails.",
-      "price": 16.5,
+      "price": 16,
       "volume": 1,
       "package": "no package",
       "spirit type": "whiskey",
@@ -163,6 +173,7 @@
       "name": "Jack Daniel's Black Label 0.5L",
       "brand": "Jack Daniel's",
       "manufacturer": "the USA",
+      "logo": "assets/img/homepage/jack-daniels.jpg",
       "description": "Stunning Jack Daniels Black Label scotch whiskey differs with its golden colour and resinous scent. Specific smoky notes and the hues of sweet raisins provide piquantness, accenting a deep and luxurious pattern range. The taste is like no other, the herbs and spices are perfectly blended and a sweetness is found mid-palate. It full-bodied texture, offers a smooth and sweet finish.",
       "price": 14,
       "volume": 0.5,
@@ -178,6 +189,7 @@
       "name": "Ballantine's Brasil Whiskey 35% 1L",
       "brand": "Ballantine's",
       "manufacturer": "Scotland",
+      "logo": "assets/img/homepage/ballantines.jpg",
       "description": "Ballantines Brasil is a winning combination of Brazilian exotics and Scottish traditions. A bright and unusual, but at the same time, a soft and balanced taste is filled with hints of vanilla, fresh apples and milk chocolate. The unique aroma is full of citrus notes, with a slight hint of honey and spices. This drink can be served, either in its pure form or in a cocktail.",
       "price": 15,
       "volume": 1,
@@ -193,8 +205,9 @@
       "name": "Appleton Estate Rare Blend 12 Years 0.7L",
       "brand": "Appleton",
       "manufacturer": "Jamaica",
+      "logo": "",
       "description": "Appleton Estate Rum, aged for 12 years, is filled with authentic Jamaican character. Its taste discloses the bitterness of the orange peel, coffee accents, cocoa, almond and vanilla. Rum is often served at room temperatures with fruit, desserts, chocolate or coffee.",
-      "price": 22.5,
+      "price": 22,
       "volume": 0.7,
       "package": "gift package",
       "spirit type": "rum",
@@ -208,6 +221,7 @@
       "name": "Matusalem Gran Reserva 15 Years Old Rum 40% 1L",
       "brand": "Matusalem",
       "manufacturer": "the Dominican Republic",
+      "logo": "",
       "description": "Appleton Estate Rum, aged for 12 years, is filled with authentic Jamaican character. Its taste discloses the bitterness of the orange peel, coffee accents, cocoa, almond and vanilla. Rum is often served at room temperatures with fruit, desserts, chocolate or coffee.",
       "price": 28,
       "volume": 1,
@@ -223,6 +237,7 @@
       "name": "Bacardi Superior 1L",
       "brand": "Bacardi",
       "manufacturer": "Bermuda",
+      "logo": "assets/img/homepage/bacardi.jpg",
       "description": "Bacardi Superior Rum is a complex rum with lots of delicate yet distinct flavours. It has a dry, crisp and very clean (with a slightly sweet) finish. Key flavour notes include: lime, apricot, rose, violet, almond, banana and light woody vanilla.",
       "price": 14,
       "volume": 1,
@@ -238,6 +253,7 @@
       "name": "Kraken Black Spiced Rum 1L",
       "brand": "Kraken",
       "manufacturer": "Caribbean",
+      "logo": "",
       "description": "Kraken Rum. Kraken Black Spiced Rum is a Caribbean black spiced rum. It is distributed in the United States by Proximo Spirits, and named after the kraken, a mythical giant squid-like sea monster. However, the bottle has a rendering of the actual giant squid with a reference to its scientific name, Architeuthis Dux.",
       "price": 21,
       "volume": 1,
@@ -253,6 +269,7 @@
       "name": "Bombay Sapphire 47%, giftpack",
       "brand": "Bombay Sapphire",
       "manufacturer": "England",
+      "logo": "",
       "description": "Bombay Sapphire is marketed in a flat-sided, sapphire-coloured bottle that bears a picture of Queen Victoria on the label. The flavouring of the drink comes from a recipe of ten ingredients: almond, lemon peel, liquorice, juniper berries, orris root, angelica, coriander, cassia, cubeb, and grains of paradise.",
       "price": 23,
       "volume": 1,
@@ -283,8 +300,9 @@
       "name": "Tanqueray Special Dry Gin 47.3% 1L",
       "brand": "Tanqueray",
       "manufacturer": "England",
+      "logo": "",
       "description": "The unique formula of the Tanqueray gin has remained unchanged for many decades. A delicate balanced taste reveals notes of juniper and coriander. This gin has a pleasant aroma and a slight refreshing aftertaste. It is recommended to serve it chilled.",
-      "price": 17.5,
+      "price": 17,
       "volume": 1,
       "package": "no package",
       "spirit type": "gin",
@@ -298,6 +316,7 @@
       "name": "Remy Martin 1738 Accord Royal 1L",
       "brand": "Remy Martin",
       "manufacturer": "France",
+      "logo": "",
       "description": "Generous notes of plum and fig marmalade rounded out by intense oaky notes of toffee & toasted bread for the nose. The taste has the mellowness of butterscotch; baked spices with hints of dark chocolate.",
       "price": 54,
       "volume": 1,
@@ -313,6 +332,7 @@
       "name": "Courvoisier Artisan VS Double Oak 40% 1L",
       "brand": "Courvoisier",
       "manufacturer": "France",
+      "logo": "",
       "description": "Courvoisier VS – Double Oak is matured initially in virgin French oak before a transfer to old Cognac casks to “create harmonious flavour”. VS boasts a daring balance of fresh, floral and fruity notes",
       "price": 36,
       "volume": 1,
@@ -328,6 +348,7 @@
       "name": "Camus VSOP Borderies 1L",
       "brand": "Camus",
       "manufacturer": "France",
+      "logo": "assets/img/homepage/camus.jpg",
       "description": "Intensely Aromatic, Single-Estate Cognac Camus VSOP Borderies is a Single-Estate Cognac produced exclusively from CAMUS’ own magnificent vineyards in the very heart of the prestigious Borderies Appellation. The CAMUS vineyards are the inheritance of five generations’ expertise in the fine art of Cognac-making. Borderies Cognacs are praised for their intensely aromatic profile and Camus VSOP Borderies is an invitation to a rare tasting experience",
       "price": 50,
       "volume": 1,
@@ -343,6 +364,7 @@
       "name": "Meukow Cognac 0.5L",
       "brand": "Meukow",
       "manufacturer": "France",
+      "logo": "",
       "description": "French cognac Meukow will delight connoisseurs of high-quality alcoholic beverages with its rich aroma, featuring hints of dried fruit, and a velvety taste, with soft caramel and light vanilla notes. Recommended to be drunk separately or as digestif. Tastes best with sweet desert dishes and young cheeses. The optimum temperature at which alcohol is served — 18-20 °C. Alcohol content: 40%",
       "price": 15,
       "volume": 0.5,
@@ -358,6 +380,7 @@
       "name": "Meukow VSOP 0.5L",
       "brand": "Meukow",
       "manufacturer": "France",
+      "logo": "",
       "description": "Crystal Amber Meukow VSOP has a refined and spicy taste consisting of oranges, white peaches and raisins hues. The cognac has vanilla and nutty flavor. Due to the special and exquisite taste, this drink was awarded with a lot of prizes and awards. Meukow VSOP has been manufacturing from the best spirits that has been aging in oak barrels for twelve years. The established label of panther means the strength of the drink.",
       "price": 25,
       "volume": 0.5,
@@ -373,6 +396,7 @@
       "name": "Remy Martin XO Excellence 0.7L",
       "brand": "Remy Martin",
       "manufacturer": "France",
+      "logo": "",
       "description": "Remy Martin XO Excellence has a smooth sweet wonderful fruit taste with flower notes of iris and jasmin. Over 350 eau-de-vie varieties, which come from two Champagne province wine regions, are used in the production of this cognac.",
       "price": 118,
       "volume": 0.7,
@@ -388,6 +412,7 @@
       "name": "Patron Silver 1L",
       "brand": "Patron",
       "manufacturer": "Mexico",
+      "logo": "",
       "description": "Patron Silver tequila is produced from alcohols which are derived from the Weber Tequilana blue agave variety. The resulting drink is not diluted with corn or cane alcohols and due to this tequila gets a refined soft taste with accents of citrus fruits and juicy pear. The spirit impresses with the fresh notes of blue agave.",
       "price": 38,
       "volume": 1,
@@ -403,6 +428,7 @@
       "name": "Olmeca Blanco 1L",
       "brand": "Olmeca",
       "manufacturer": "Mexico",
+      "logo": "",
       "description": "Olmeca Blanco is versatile and can be enjoyed neat or a Margarita. With herbs & green pepper. it is sweet, slightly smoky, with a soft honey finish.",
       "price": 24,
       "volume": 1,
@@ -418,6 +444,7 @@
       "name": "Mozart Chocolate Cream 17% 1L",
       "brand": "Mozart",
       "manufacturer": "Austria",
+      "logo": "",
       "description": "Mozart Chocolate Cream is a spirit that has a wonderful aroma with tints of sweet chocolate and cream. The liquor has extremely sweet taste with a pleasant bitterness, notes of milk chocolate, rich tones of cream and vanilla.",
       "price": 17,
       "volume": 1,
@@ -433,6 +460,7 @@
       "name": "Jagermeister + 3 Metal Shot Cups",
       "brand": "Jagermeister",
       "manufacturer": "Germany",
+      "logo": "assets/img/homepage/jagermeister.png",
       "description": "Many songs have been devoted to this traditional german liquor — famous Jägermeister. Literally the name of the beverage is translated as a senior jaeger. Its exact composition is under lock and key. But it is well-known that it is obtained by maceration of the 56 plants, including licorice, citrus, cinnamon, anise etc",
       "price": 17,
       "volume": 1,
@@ -462,226 +490,14 @@
       "email": "ola@mail.ru",
       "password": "ola123",
       "id": 3
-    },
-    {
-      "name": "Zina",
-      "email": "zina@mail.ru",
-      "password": "zina123",
-      "id": 4
-    },
-    {
-      "name": "Den",
-      "email": "den@mail.ru",
-      "password": "den123",
-      "id": 5
     }
   ],
   "orders": [
     {
-      "3": "3",
+      "15": "1",
       "name": "Ola",
       "email": "ola@mail.ru",
       "id": 1
-    },
-    {
-      "3": "3",
-      "5": "2",
-      "name": "Zina",
-      "email": "zina@mail.ru",
-      "id": 2
-    },
-    {
-      "3": "3",
-      "5": "2",
-      "name": "Zina",
-      "email": "zina@mail.ru",
-      "id": 3
-    },
-    {
-      "3": "3",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 4
-    },
-    {
-      "3": "3",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 5
-    },
-    {
-      "3": "3",
-      "5": "2",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 6
-    },
-    {
-      "3": "3",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 7
-    },
-    {
-      "3": "3",
-      "5": "2",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 8
-    },
-    {
-      "2": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 9
-    },
-    {
-      "2": "1",
-      "3": "3",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 10
-    },
-    {
-      "2": "1",
-      "3": "3",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 11
-    },
-    {
-      "3": "3",
-      "5": "2",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 12
-    },
-    {
-      "3": "3",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 13
-    },
-    {
-      "5": "2",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 14
-    },
-    {
-      "1": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 15
-    },
-    {
-      "1": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 16
-    },
-    {
-      "1": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 17
-    },
-    {
-      "3": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 18
-    },
-    {
-      "1": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 19
-    },
-    {
-      "1": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 20
-    },
-    {
-      "1": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 21
-    },
-    {
-      "4": "1",
-      "5": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 22
-    },
-    {
-      "1": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 23
-    },
-    {
-      "2": "2",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 24
-    },
-    {
-      "2": "1",
-      "3": "2",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 25
-    },
-    {
-      "5": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 26
-    },
-    {
-      "1": "1",
-      "5": "1",
-      "11": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 27
-    },
-    {
-      "1": "1",
-      "6": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 28
-    },
-    {
-      "11": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 29
-    },
-    {
-      "1": "1",
-      "3": "1",
-      "4": "1",
-      "name": "Den",
-      "email": "den@mail.ru",
-      "id": 30
-    },
-    {
-      "2": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 31
-    },
-    {
-      "3": "1",
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "id": 32
     }
   ]
 }

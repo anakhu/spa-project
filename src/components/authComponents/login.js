@@ -1,4 +1,4 @@
-import { FORM_TEMPLATE } from '../templates.js';
+import { FORM_TEMPLATE } from './login-template.js';
 import CONFIG from '../../config.js';
 
 const { contentId } = CONFIG.routes.authPage;
@@ -8,10 +8,12 @@ function initAuthForms(formContainer) {
   const forms = formContainer.querySelectorAll('form');
 
   formLinks.addEventListener('click', (e) => {
-    const formId = `${e.target.id.split('link')[0]}form`;
-    forms.forEach((form) => {
-      form.style.display = form.id === formId ? 'block' : 'none';
-    });
+    if (e.target.tagName === 'LI') {
+      const formId = `${e.target.id.split('link')[0]}form`;
+      forms.forEach((form) => {
+        form.style.display = form.id === formId ? 'block' : 'none';
+      });
+    }
   });
 }
 

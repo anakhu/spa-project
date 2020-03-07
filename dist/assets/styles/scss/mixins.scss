@@ -12,7 +12,7 @@
 
   .banner__content {
     position: absolute;
-    bottom: 50px;
+    top: 10%;
     width: 100%;
 
     @include mQ(600px) {
@@ -80,9 +80,19 @@
     font-size: 1.2rem;;
     margin: 0;
   }
+
+  .ok {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 5%;
+    opacity: 0;
+  }
 }
 
 @mixin button {
+  z-index: 1;
   cursor: pointer;
   color: $mainColor;
   background-color: $ofGrey;
@@ -91,10 +101,16 @@
   padding: 5px 10px;
   border: none;
   font-weight: bold;
+  box-shadow: 2px 2px $mainColor;
   
   &:hover {
-    border: none;
-    background-color: $btnColor;
+    background-color: $mainColor;
+    color: white;
+  }
+
+  &:active {
+    transform: scale(0.9);
+    box-shadow: none;
   }
 }
 
@@ -111,3 +127,78 @@
   }
 }
 
+
+@mixin pageContent {
+  padding: 0px 20px 30px 20px;
+}
+
+@mixin offer {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+
+  @include mQ(600px) {
+   justify-content: center;
+  }
+
+  .catalogue__item {
+    box-sizing: border-box;
+    transform: scale(0.8);
+    align-self: stretch;
+
+    &:hover {
+      transform: scale(0.82);
+    }
+
+    @include mQ(600px) {
+      flex: 0 0 44%;
+      transform: scale(0.7);
+    }
+  }
+}
+
+
+@mixin advert {
+  .ads_item {
+
+    margin: 30px auto;
+    cursor: pointer;
+
+    div {
+      width: 70%;
+      height: 130px;
+      margin: 10px auto;
+      background-color: $font;
+      opacity: 0.2;
+      text-align: center;
+    }
+
+    p {
+      margin: 0px;
+      text-align: center;
+      color: $font;
+      font-weight: bold;
+    }
+  }
+}
+
+
+@mixin aside {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 5px;
+    width: auto;
+    align-self: flex-start;
+  
+    @include mQ(600px) {
+      flex: 0 0 95%;
+    }
+  
+    .ads {
+      @include advert();
+  
+      @include mQ(600px) {
+        display: none;
+    }
+  }
+}

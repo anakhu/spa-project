@@ -2,13 +2,13 @@
 @import 'mixins';
 
 .authPage-wrapper {
-  padding-top: 50px;
+  padding-top: 70px;
+  padding-bottom: 80%;
 }
 
 .auth__form_wrapper {
   width: 50%;
   margin: 0px auto;
-  box-shadow: $borderShadow;
 
   @include mQ(600px) {
     width: 85%;
@@ -32,7 +32,7 @@
 
   form {
     padding: 20px 40px;
-   
+  
     label, input, button {
       display: block;
       width: 100%;

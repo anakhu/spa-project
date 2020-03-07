@@ -1,4 +1,4 @@
-import { CATALOGUE_ITEM_TEMPLATE } from '../templates.js';
+import { CATALOGUE_ITEM_TEMPLATE } from './catalogue-template.js';
 import CONFIG from '../../config.js';
 
 const { catalogue } = CONFIG.selectors;
@@ -6,12 +6,16 @@ const { route } = CONFIG.routes.productPage;
 
 function renderCatalogueItem(product) {
   const catalogueContainer = document.querySelector(catalogue.wrapper);
-  const {
-    id, image, name, price,
-  } = product;
-
-  const catalogueItem = CATALOGUE_ITEM_TEMPLATE(id, image, name, price);
+  const catalogueItem = CATALOGUE_ITEM_TEMPLATE(product);
   catalogueContainer.insertAdjacentHTML('beforeend', catalogueItem);
+}
+
+function renderCatalogueBanner() {
+  const catalogueContainer = document.querySelector(catalogue.page);
+  catalogueContainer.insertAdjacentHTML('afterbegin',
+    `<div class="lead__banner">
+      <img src="/assets/img/products/catalogue.jpg" />
+    </div>`);
 }
 
 function makeCatalogueItemsClickable(render) {
@@ -31,6 +35,7 @@ function renderCatalogue(data, render) {
     renderCatalogueItem(product);
   });
   makeCatalogueItemsClickable(render);
+  renderCatalogueBanner();
 }
 
 export default renderCatalogue;

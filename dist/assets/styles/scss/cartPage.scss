@@ -18,14 +18,23 @@
     width: 95%;
     justify-content: center;
   }
+
+  .aside {
+    flex: 1 0 30%;
+    @include aside();
+  }
 }
 
 .cartPage__cart_order {
-  flex: 0 0 30%;
-  align-self: flex-start;
+  flex: 1 0 100%;
+  align-self: stretch;
   height: auto;
   border: 3px solid $ofGrey;
   padding: 5px;
+
+  @include mQ(600px) {
+    flex: 0 0 95%;
+  }
 
   h3 {
     padding: 5px 0px;
@@ -52,6 +61,29 @@
 
 .cartPage__cart_wrapper {
   flex: 0 0 65%;
+
+  ul {
+    padding-top: 20px;
+    text-align: center;
+
+    img {
+      width: 150px;
+      height: 150px;
+      opacity: 0.3;
+    }
+    
+    h5 {
+      opacity: 0.8;
+      font-size: 1rem;
+      &:hover {
+        color: $mainColor;
+      }
+    }
+
+    li {
+      cursor: pointer;
+    }
+  }
 }
 
 .cart__item_wrapper {
@@ -93,3 +125,5 @@
   flex: 0 0 300px;
   @include card();
 }
+
+

@@ -1,4 +1,5 @@
-import { PRICE_INPUT_TEMPLATE, CHECKBOX_TEMPLATE } from '../templates.js';
+import $ from 'jquery';
+import { PRICE_INPUT_TEMPLATE, CHECKBOX_TEMPLATE } from './filter-templates.js';
 import CONFIG from '../../config.js';
 
 const { filters } = CONFIG;
@@ -20,8 +21,8 @@ class Filters {
   drawPriceInputRange(data) {
     const allPrices = data.map(({ price }) => price);
     const prices = {
-      min: Math.min(...allPrices),
-      max: Math.max(...allPrices),
+      min: Math.floor(Math.min(...allPrices)),
+      max: Math.floor(Math.max(...allPrices)),
     };
     this.filtersContaniner.insertAdjacentHTML('beforeend', PRICE_INPUT_TEMPLATE(prices.min, prices.max));
   }
@@ -72,10 +73,17 @@ class Filters {
   initFilterGroupContent(group, content) {
     content.style.display = 'none';
     const label = group.getElementsByTagName('div')[0];
-
     label.addEventListener('click', () => {
       const { display } = content.style;
-      content.style.display = display === 'none' ? 'block' : 'none';
+      if (display === 'block') {
+        $(content).slideUp(500, () => {
+          content.style.display = 'none';
+        });
+      } else {
+        $(content).slideDown(500, () => {
+          content.style.display = 'block';
+        });
+      }
     });
   }
 }

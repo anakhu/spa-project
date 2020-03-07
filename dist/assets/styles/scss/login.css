@@ -1,0 +1,75 @@
+.authPage-wrapper {
+  padding-top: 70px;
+  padding-bottom: 80%;
+}
+
+.auth__form_wrapper {
+  width: 50%;
+  margin: 0px auto;
+}
+
+@media screen and (max-width: 600px) {
+  .auth__form_wrapper {
+    width: 85%;
+  }
+}
+
+.auth__form_wrapper p {
+  color: #D44D5C;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.auth__form_wrapper ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.auth__form_wrapper li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  color: white;
+  background-color: #773344;
+  padding: 5px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px 0px;
+}
+
+.auth__form_wrapper li:hover {
+  background-color: #9b4258;
+}
+
+.auth__form_wrapper form {
+  padding: 20px 40px;
+}
+
+.auth__form_wrapper form label, .auth__form_wrapper form input, .auth__form_wrapper form button {
+  display: block;
+  width: 100%;
+  padding: 7px 0px 7px 10px;
+  font-size: 1rem;
+  margin: 5px auto;
+}
+
+.auth__form_wrapper form label {
+  font-weight: bold;
+}
+
+.auth__form_wrapper form input:focus {
+  outline: none !important;
+  border: 2px solid #0B0014;
+}
+
+.auth__form_wrapper form button {
+  margin: 5px auto;
+  width: 40%;
+}
+
+.auth__form_error {
+  text-align: center;
+}
+/*# sourceMappingURL=login.css.map */

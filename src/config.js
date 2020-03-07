@@ -19,7 +19,7 @@ const CONFIG = {
     },
     email: {
       isNotEmpty: true,
-      isValidEmail: true, 
+      isValidEmail: true,
     },
     password: {
       minLen: 6,
@@ -33,6 +33,7 @@ const CONFIG = {
       wrapper: '.cartPage__cart_wrapper',
       order: '.cartPage__cart_order',
       content: '.cartPage__content',
+      linkToShop: '.cartPage__content .cartPage__link_catalogue',
       item: '.cart__item_wrapper',
       total: '.cartPage__total',
       details: '.cartPage__details',
@@ -46,12 +47,17 @@ const CONFIG = {
       price: '.cart__item_price',
       quantity: '.cart__item_quantity',
       buy: '.cartPage__order_buy',
+      adverts: '.cartPage__content .ads',
+      advertsMax: 4,
     },
     catalogue: {
       item: '.catalogue__item',
       add: '.catalogue__item_add',
       img: '.catalogue__item_imgwrap',
       wrapper: '.productPage__catalogue',
+      page: '.productPage-wrapper',
+      adverts: '.productPage__content .ads',
+      advertsMax: 6,
     },
     filter: {
       wrapper: '.productPage__filter',
@@ -66,6 +72,8 @@ const CONFIG = {
     nav: {
       logout: '.nav__link_logout',
       login: '.nav__link_login',
+      main: '.main__nav',
+      toggle: '.nav__toggle',
     },
     auth: {
       error: '.auth__form_error',
@@ -73,9 +81,18 @@ const CONFIG = {
     home: {
       services: '.homePage__services li',
       img: '.homePage__products img',
+      products: '.homePage__products',
     },
     page: {
+      main: 'singlePage_main',
       content: '.singlePage__content',
+      random: 6,
+      offer: '.singlePage__offer',
+      add: '.singlePage__item_add',
+    },
+    about: {
+      random: 5,
+      offer: '.aboutPage__offer',
     },
     forms: {
       signIn: 'js-sign-in-form',

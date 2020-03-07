@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import CONFIG from '../config.js';
 import Observable from './Observable.js';
 
@@ -16,13 +17,8 @@ class CartService {
   }
 
   init() {
-    this.carts = document.querySelectorAll(catalogue.add);
-    this.carts.forEach((cartItem) => {
-      cartItem.addEventListener('click', (e) => {
-        const itemId = e.target.closest(catalogue.item).dataset.id;
-        this.addProductToCart(itemId);
-      });
-    });
+    const addButtons = document.querySelectorAll(catalogue.add);
+    this.initAddButtons(addButtons);
     this.initProductCart();
     this.initCartInputHadlers();
   }
@@ -61,6 +57,16 @@ class CartService {
     this.initCartNumberInput();
   }
 
+  initAddButtons(addButtons) {
+    addButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        const itemId = e.target.closest(catalogue.item).dataset.id;
+        this.addProductToCart(itemId);
+        this.displayInCartFlag(e.target.closest(catalogue.item));
+      });
+    });
+  }
+
 
   initDeleteButtons() {
     const deleteButtons = document.querySelectorAll(cart.delete);
@@ -68,6 +74,8 @@ class CartService {
       button.addEventListener('click', (e) => {
         const { id } = e.target.dataset;
         this.deleteProductFromCart(id);
+        this.displayInCartFlag(null, id);
+        this.displayEmptyCartContent();
       });
     });
   }
@@ -88,6 +96,34 @@ class CartService {
         this.updateLocalStorage();
       });
     });
+  }
+
+  displayInCartFlag(card = null, itemId = null) {
+    if (card) {
+      const { id } = card.dataset;
+
+      if (this.productsInCart[id]) {
+        $(card).find('.ok').css('opacity', '1');
+      } else {
+        $(card).find('.ok').css('opacity', '0');
+      }
+    }
+
+    if (itemId) {
+      const calalogueCards = document.querySelectorAll(catalogue.item);
+      const targetCard = Array.from(calalogueCards)
+        .find((item) => Number(item.dataset.id) === Number(itemId));
+      if (targetCard) {
+        $(targetCard).find('.ok').css('opacity', '0');
+      }
+    }
+  }
+
+  displayEmptyCartContent() {
+    const cartItems = document.querySelectorAll(cart.item);
+    if (!cartItems.length) {
+      $(cart.linkToShop).css('display', 'block');
+    }
   }
 }
 

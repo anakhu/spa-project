@@ -1,0 +1,114 @@
+.singlePage-wrapper {
+  padding: 10px;
+}
+
+.singlePage-wrapper h3 {
+  color: #0B0014;
+  text-align: center;
+}
+
+.singlePage__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+  .singlePage__main {
+    display: block;
+  }
+}
+
+.singlePage__content_main {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 35%;
+          flex: 0 0 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.singlePage__content_main .catalogue__item {
+  padding: 10px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+@media screen and (max-width: 600px) {
+  .singlePage__content_main .catalogue__item .ok {
+    top: 0;
+    right: 20%;
+  }
+}
+
+.singlePage_content_info {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 55%;
+          flex: 0 0 55%;
+  padding: 10px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.singlePage__offer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .singlePage__offer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.singlePage__offer .catalogue__item {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+}
+
+.singlePage__offer .catalogue__item:hover {
+  -webkit-transform: scale(0.82);
+          transform: scale(0.82);
+}
+
+@media screen and (max-width: 600px) {
+  .singlePage__offer .catalogue__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 44%;
+            flex: 0 0 44%;
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+/*# sourceMappingURL=singlePage.css.map */

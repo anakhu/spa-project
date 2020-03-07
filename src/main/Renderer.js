@@ -1,5 +1,7 @@
+import $ from 'jquery';
 import CONFIG from '../config.js';
 import renderNavbar from '../components/layoutComponents/navbar.js';
+import renderFooter from '../components/layoutComponents/footer.js';
 import renderHomePage from '../components/homePageComponents/homepage.js';
 import renderCatalogue from '../components/catalogueComponents/catalogue.js';
 import Filters from '../components/catalogueComponents/filters.js';
@@ -9,8 +11,9 @@ import SinglePage from '../components/singlePageComponents/singlePage';
 import renderAuthForms from '../components/authComponents/login.js';
 import renderAboutPage from '../components/aboutComponents/aboutPage.js';
 import renderErrorPage from '../components/errorComponents/errorPage.js';
+import { renderAdComponent } from '../components/layoutComponents/ads.js';
 
-const { catalogue } = CONFIG.selectors;
+const { catalogue, page, cart } = CONFIG.selectors;
 
 class Renderer {
   constructor(router, checkboxService, cartService, cartObserver) {
@@ -22,21 +25,38 @@ class Renderer {
   }
 
   initApp(data) {
-    renderHomePage(this.router.renderRouteContent.bind(this.router));
-    renderAboutPage();
     renderNavbar(this.router.renderRouteContent.bind(this.router));
-    renderCatalogue(data, this.router.renderRouteContent.bind(this.router));
-    this.renderCart(data);
-    this.renderFilters(data);
+    renderHomePage(this.router.renderRouteContent.bind(this.router), data);
+    renderAboutPage(data);
+    renderFooter();
     renderOrderCard();
     renderAuthForms();
     renderErrorPage();
+
+    this.initCataloguePage(data);
+    this.renderCart(data);
+    this.renderFilters(data);
+    this.renderAds();
+    this.renderBackToTopBtn();
+
     this.appContainer.style.display = 'block';
   }
 
+  initCataloguePage(data) {
+    renderCatalogue(data, this.router.renderRouteContent.bind(this.router));
+    this.initInCartFlags();
+  }
+
+  initInCartFlags() {
+    const catalogueCards = document.querySelectorAll(catalogue.item);
+    catalogueCards.forEach((card) => {
+      this.cartService.displayInCartFlag(card);
+    });
+  }
+
   renderCart(data) {
-    const cart = new Cart();
-    cart.init(this.cartService.productsInCart, data);
+    const orderCart = new Cart();
+    orderCart.init(this.cartService.productsInCart, data, this.router.renderRouteContent.bind(this.router));
   }
 
   renderFilters(data) {
@@ -44,18 +64,24 @@ class Renderer {
     filters.drawFilters(data);
   }
 
-  renderSinglePage(data) {
+  renderSinglePage(product, data, render) {
     const singlePage = new SinglePage();
-    singlePage.drawSinglePage(data);
+    singlePage.drawSinglePage(product, data, render);
 
-    const addBtn = document.querySelector('.singlePage__item_add');
+
+    const addBtn = document.querySelector(page.add);
+
+    this.cartService.displayInCartFlag(addBtn.closest(catalogue.item));
+
     addBtn.addEventListener('click', () => {
       const itemId = window.location.pathname.split('/product/')[1];
       this.cartService.addProductToCart(itemId);
+      this.cartService.displayInCartFlag(addBtn.closest(catalogue.item));
     });
   }
 
   displayPageContent(contentId) {
+    $('html, body').animate({ scrollTop: 0 }, 0);
     const appContentElements = Array.from(this.appContainer.children);
     [...appContentElements].forEach((div) => {
       div.style.display = 'none';
@@ -106,11 +132,31 @@ class Renderer {
     const product = data.find((item) => Number(item.id) === Number(productId));
 
     if (product) {
-      this.renderSinglePage(product);
+      this.renderSinglePage(product, data, this.router.renderRouteContent.bind(this.router));
     } else {
       window.history.pushState(null, null, '/404');
       this.router.renderRouteContent(window.location.pathname);
     }
+  }
+
+  renderAds() {
+    const catalogueAds = document.querySelector(catalogue.adverts);
+    const cartPageAds = document.querySelector(cart.adverts);
+    renderAdComponent(catalogueAds, catalogue.advertsMax);
+    renderAdComponent(cartPageAds, cart.advertsMax);
+  }
+
+  renderBackToTopBtn() {
+    const body = document.querySelector('body');
+    body.insertAdjacentHTML('beforeend', `
+    <div class="up">
+      <img class="up" src="/assets/img/up.png" alt="up">
+    </div>`);
+
+    const up = document.querySelector('.up');
+    up.addEventListener('click', () => {
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
+    });
   }
 }
 
