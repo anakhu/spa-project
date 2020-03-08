@@ -1,21 +1,20 @@
-export function makeRandom(maxLength) {
+export function makeRandom(maxLength, data) {
+
   const randomIds = [];
 
-  return function generateRandomIds(data, id = null) {
-    if (randomIds.length === maxLength) {
-      return randomIds;
+  const ids = data.map((item) => item.id);
+
+  if (maxLength >= ids.length) {
+    maxLength = ids.length;
+  }
+
+  return function generateRandomIds() {
+    while (randomIds.length !== maxLength) {
+      const randomIndex = Math.floor((Math.random() * ids.length));
+      randomIds.push(ids[randomIndex]);
+      ids.splice(randomIndex, 1);
     }
 
-    const randomId = Math.floor((Math.random() * data.length) + 1);
-
-    if (id && randomIds.indexOf(randomId) === -1 && randomId !== id) {
-      randomIds.push(randomId);
-    }
-
-    if (!id && randomIds.indexOf(randomId) === -1) {
-      randomIds.push(randomId);
-    }
-
-    return generateRandomIds(data, id);
+    return randomIds;
   };
 }

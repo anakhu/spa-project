@@ -78,8 +78,8 @@ class App {
       this.renderer.renderCart(this.products);
       this.cartService.initCartInputHadlers();
       this.cartObserver.initObserver();
-      this.renderer.initInCartFlags();
     }
+    this.renderer.initInCartFlags();
   }
 }
 

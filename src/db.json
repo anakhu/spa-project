@@ -83,7 +83,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "bourbon",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/whiskey/white-bourbon.1098.jpg",
       "inStock": true,
       "numberAvailable": 50
@@ -99,7 +99,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "whiskey",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/whiskey/black-velvet-canadian.2738.jpg",
       "inStock": true,
       "numberAvailable": 55
@@ -115,7 +115,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "whiskey",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/whiskey/lauders-scotch-whisky.1085.jpg",
       "inStock": true,
       "numberAvailable": 18
@@ -131,7 +131,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "whiskey",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/whiskey/john-jameson.1.jpg",
       "inStock": true,
       "numberAvailable": 38
@@ -147,7 +147,7 @@
       "volume": 1,
       "package": "gift package",
       "spirit type": "whiskey",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/whiskey/bushmills-original-40-.8638.jpg",
       "inStock": true,
       "numberAvailable": 18
@@ -163,7 +163,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "whiskey",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/whiskey/black-velvet-reserve-8-yo-whisky.0150.jpg",
       "inStock": true,
       "numberAvailable": 78
@@ -179,7 +179,7 @@
       "volume": 0.5,
       "package": "no package",
       "spirit type": "whiskey",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/whiskey/black-old-no.7.1044.jpg",
       "inStock": true,
       "numberAvailable": 71
@@ -195,7 +195,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "whiskey",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/whiskey/ballantines-brasil-whisky.9908.jpg",
       "inStock": true,
       "numberAvailable": 15
@@ -211,7 +211,7 @@
       "volume": 0.7,
       "package": "gift package",
       "spirit type": "rum",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/rum/appleton-estate-rum-12-yo.4264.jpg",
       "inStock": true,
       "numberAvailable": 15
@@ -227,7 +227,7 @@
       "volume": 1,
       "package": "gift package",
       "spirit type": "rum",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/rum/matusalem-gran-reserva-15-years-old-rum-40.1805.jpg",
       "inStock": true,
       "numberAvailable": 15
@@ -243,7 +243,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "rum",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/rum/bacardi-superior-50ml.3600.jpg",
       "inStock": true,
       "numberAvailable": 25
@@ -259,7 +259,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "rum",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/rum/the-kraken-black-spiced-rum-.3125.jpg",
       "inStock": true,
       "numberAvailable": 25
@@ -275,7 +275,7 @@
       "volume": 1,
       "package": "gift package",
       "spirit type": "gin",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/gin/bombay-sapphire-47-1l-giftpack.5828.jpg",
       "inStock": true,
       "numberAvailable": 25
@@ -290,7 +290,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "gin",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/gin/bombay-sapphire-47-gin.2035.jpg",
       "inStock": true,
       "numberAvailable": 18
@@ -306,7 +306,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "gin",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/gin/tanqueray-special-dry-gin-47.3-.5213.jpg",
       "inStock": true,
       "numberAvailable": 28
@@ -322,7 +322,7 @@
       "volume": 1,
       "package": "gift package",
       "spirit type": "cognac",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/cognac/1738-accord-royal.9581.jpg",
       "inStock": true,
       "numberAvailable": 30
@@ -338,7 +338,7 @@
       "volume": 1,
       "package": "gift package",
       "spirit type": "cognac",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/cognac/artisan-vs-double-oak-40-.1814.jpg",
       "inStock": true,
       "numberAvailable": 11
@@ -354,7 +354,7 @@
       "volume": 1,
       "package": "gift package",
       "spirit type": "cognac",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/cognac/camus-vsop-borderies.2178.jpg",
       "inStock": true,
       "numberAvailable": 28
@@ -370,7 +370,7 @@
       "volume": 0.5,
       "package": "no package",
       "spirit type": "cognac",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/cognac/meukow-cognac.7615.jpg",
       "inStock": true,
       "numberAvailable": 10
@@ -386,7 +386,7 @@
       "volume": 0.5,
       "package": "gift package",
       "spirit type": "cognac",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/cognac/meukow-vsop.6029.jpg",
       "inStock": true,
       "numberAvailable": 10
@@ -402,7 +402,7 @@
       "volume": 0.7,
       "package": "gift package",
       "spirit type": "cognac",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/cognac/remy-martin-xo-excellence.6842.jpg",
       "inStock": true,
       "numberAvailable": 7
@@ -418,7 +418,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "tequila",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/tequila/patron-silver.2553.jpg",
       "inStock": true,
       "numberAvailable": 72
@@ -434,7 +434,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "tequila",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/tequila/olmeca-blanco.5775.jpg",
       "inStock": true,
       "numberAvailable": 7
@@ -450,7 +450,7 @@
       "volume": 1,
       "package": "no package",
       "spirit type": "liqueur",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/liqueur/chocolate-cream-17.9408.jpg",
       "inStock": true,
       "numberAvailable": 17
@@ -466,7 +466,7 @@
       "volume": 1,
       "package": "gift package",
       "spirit type": "liqueur",
-      "category": "hard drinks",
+      "category": "strong drinks",
       "image": "assets/img/products/liqueur/jagermeister-jagermeister-3-metal-shot-cups-35-1l.7352.jpg",
       "inStock": true,
       "numberAvailable": 17
@@ -478,18 +478,6 @@
       "name": "Vasya",
       "email": "vasya@mail.ru",
       "password": "vasya123"
-    },
-    {
-      "id": 2,
-      "name": "Kate",
-      "email": "kate@mail.ru",
-      "password": "kate123"
-    },
-    {
-      "name": "Ola",
-      "email": "ola@mail.ru",
-      "password": "ola123",
-      "id": 3
     }
   ],
   "orders": [
@@ -498,6 +486,19 @@
       "name": "Ola",
       "email": "ola@mail.ru",
       "id": 1
+    },
+    {
+      "1": "1",
+      "name": "kate",
+      "email": "kate@mail.ru",
+      "id": 5
+    },
+    {
+      "5": "1",
+      "6": "1",
+      "name": "kate",
+      "email": "kate@mail.ru",
+      "id": 6
     }
   ]
 }

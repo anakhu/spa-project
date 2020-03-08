@@ -1,5 +1,5 @@
 const CONFIG = {
-  api: 'https://my-json-server.typicode.com/anakhu/demo',
+  api: 'http://localhost:3000',
   routes: {
     homePage: { route: '/', contentId: 'js-homepage' },
     aboutPage: { route: 'about', contentId: 'js-about-page' },

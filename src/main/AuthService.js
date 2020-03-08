@@ -134,6 +134,7 @@ class AuthService {
                 }
               });
               this.orderMesssages.textContent = 'Your order was placed!';
+              this.cartService.displayEmptyCartContent();
             }
           })
           .catch((e) => {

@@ -16,14 +16,8 @@ export function generateMoreProducts(container, data, max, product = null) {
     otherProducts = data;
   }
 
-  const makeUniqueIds = makeRandom(max);
-  let uniqueIds;
-
-  if (product) {
-    uniqueIds = makeUniqueIds(otherProducts, product.id);
-  } else {
-    uniqueIds = makeUniqueIds(otherProducts);
-  }
+  const makeUniqueIds = makeRandom(max, otherProducts);
+  const uniqueIds = makeUniqueIds();
 
   const productsToDisplay = otherProducts
     .filter((prod) => uniqueIds.includes(prod.id));
